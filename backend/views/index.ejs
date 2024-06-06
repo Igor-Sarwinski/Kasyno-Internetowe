@@ -1,0 +1,33 @@
+<%-include('include/_header')%>
+
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="/add-user" class="border-shadow">
+                <span class="">Dodaj użytkownika <i class="fa-solid fa-user"></i></span>
+            </a>
+        </div>
+        <form action="/" method="post">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Nazwa</th>
+                        <th>Email</th>
+                        <th>Adres</th>
+                        <th>Telefon</th>
+                        <th>Haslo</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%-include('include/_show')%>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</main>
+
+<%-include('include/_footer')%>

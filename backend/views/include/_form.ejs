@@ -1,0 +1,39 @@
+<form action="/api/users" method="post" id="add_user">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="name" class="text-light">Imię</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="name" value="" placeholder="Podaj imię">
+        </div>
+        <div class="form-group">
+            <label for="surname" class="text-light">Nazwisko</label>
+            <input type="text" name="surname" value="" placeholder="Podaj nazwisko">
+        </div>
+        <div class="form-group">
+            <label for="nickname" class="text-light">Nazwa</label>
+            <input type="text" name="nickname" value="" placeholder="Podaj swoja nazwe">
+        </div>
+        <div class="form-group">
+            <label for="email" class="text-light">Email</label>
+            <input type="text" name="email" value="" placeholder="Podaj email">
+        </div>
+        <div class="form-group">
+            <label for="address" class="text-light">Adres</label>
+            <input type="text" name="address" value="" placeholder="Podaj swoj adres">
+        </div>
+        <div class="form-group">
+            <label for="phone" class="text-light">Telefon</label>
+            <input type="text" minlength="9" maxlength="9" name="phone" value="" placeholder="Podaj telefon">
+        </div>
+        <div class="form-group">
+            <label for="password" class="text-light">Haslo</label>
+            <input type="password" name="password" value="" placeholder="Podaj haslo">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Dodaj</button>
+        </div>
+
+    </div>
+
+</form>
