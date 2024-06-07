@@ -1,4 +1,4 @@
-var Userdb = require('../model/model');
+let Userdb = require('../model/model');
 
 // Tworzenie i zapis nowego uzytkownika
 exports.create = (req, res) => {
@@ -139,6 +139,6 @@ exports.getUserById = (req, res) => {
             res.send(user);
         })
         .catch(err => {
-            res.status 500).send({ message: "Błąd podczas pobierania użytkownika z id " + id });
+            res.status(500).send({ message: "Błąd podczas pobierania użytkownika z id " + id });
         });
 };
