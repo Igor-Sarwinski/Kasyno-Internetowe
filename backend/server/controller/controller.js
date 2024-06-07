@@ -1,154 +1,144 @@
-var Userdb=require('../model/model');
+var Userdb = require('../model/model');
 
-//create and save new user
-exports.create=(req,res)=>{
-//validate request
-if(!req.body){
-    res.status(400).send({message:'Content cannot be empty'})
-    return;
-}
-
-//new user
-const user=new Userdb({
-    name:req.body.name,
-    surname:req.body.surname,
-    nickname:req.body.nickname,
-    email:req.body.email,
-    address:req.body.address,
-    phone:req.body.phone,
-    password:req.body.password,
-})
-
-//save user in the database
-user
-.save(user)
-.then(data=>{
-    //res.send(data)
-    res.redirect('/add-user')
-})
-.catch(err=>{
-    res.status(500).send({
-        message:err.message||"Some error occured while creating a create operation"
-    })
-})
-}
-
-//retrieve and return all users/retrieve and return a single user
-exports.find=(req,res)=>{
-
-if(req.query.id){
-    const id=req.query.id;
-
-    Userdb.findById(id)
-    .then(data=>{
-        if(!data){
-            res.status(404).send({message:"Not found user with id "+id})
-
-        }
-        else{
-            res.send(data)
-        }
-    })
-    .catch(err=>{
-        res.status(500).send({message:"Error retrieving user with id "+id})
-    })
-}
-else{
-    Userdb.find()
-    .then(user=>{
-        res.send(user)
-    })
-    .catch(err=>{
-        res.status(500).send({message:err.message|| "Error occured while retrieving user information"})
-    })
-}
-
-}
-
-//update user by id
-exports.update=(req,res)=>{
-if(!req.body){
-    return res
-    .status(400)
-    .send({message:"Data to update cannot be empty"})
-}
-const id=req.params.id;
-Userdb.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
-.then(data=>{
-    if(!data){
-        res.status(404).send({message:"Cannot update user with ${id},Maybe user not found"})
+// Tworzenie i zapis nowego uzytkownika
+exports.create = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({ message: 'Zawartość nie może być pusta' });
+        return;
     }
-    else{
-        res.send(data)
-    }
-})
-.catch(err=>{
-    res.status(500).send({message:"Error update user information"})
-})
-}
 
-//delete user by id
-exports.delete=(req,res)=>{
-const id=req.params.id;
+    // nowy użytkownik
+    const user = new Userdb({
+        name: req.body.name,
+        surname: req.body.surname,
+        nickname: req.body.nickname,
+        email: req.body.email,
+        address: req.body.address,
+        phone: req.body.phone,
+        password: req.body.password,
+    });
 
-Userdb.findByIdAndDelete(id)
-.then(data=>{
-    if(!data){
-        res.status(404).send({message:"Cannot delete with id ${id}, Maybe id is wrong"})
-    }
-    else{
-        res.send({
-            message:"User was deleted successfully"
+    // zapisz użytkownika w bazie danych
+    user
+        .save(user)
+        .then(data => {
+            // res.send(data)
+            res.redirect('/add-user');
         })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Wystąpił błąd podczas tworzenia operacji tworzenia"
+            });
+        });
+};
+
+// pobierz i zwróć wszystkich użytkowników / pobierz i zwróć pojedynczego użytkownika
+exports.find = (req, res) => {
+    if (req.query.id) {
+        const id = req.query.id;
+
+        Userdb.findById(id)
+            .then(data => {
+                if (!data) {
+                    res.status(404).send({ message: "Nie znaleziono użytkownika z id " + id });
+                } else {
+                    res.send(data);
+                }
+            })
+            .catch(err => {
+                res.status(500).send({ message: "Błąd podczas pobierania użytkownika z id " + id });
+            });
+    } else {
+        Userdb.find()
+            .then(user => {
+                res.send(user);
+            })
+            .catch(err => {
+                res.status(500).send({ message: err.message || "Wystąpił błąd podczas pobierania informacji o użytkownikach" });
+            });
     }
-})
-.catch(err=>{
-    res.status(500).send({
-        message:"Could not delete user with id ="+id
-    })
-})
-}
+};
+
+// zaktualizuj użytkownika po id
+exports.update = (req, res) => {
+    if (!req.body) {
+        return res
+            .status(400)
+            .send({ message: "Dane do aktualizacji nie mogą być puste" });
+    }
+    const id = req.params.id;
+    Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+        .then(data => {
+            if (!data) {
+                res.status(404).send({ message: "Nie można zaktualizować użytkownika z id " + id + ", być może użytkownik nie został znaleziony" });
+            } else {
+                res.send(data);
+            }
+        })
+        .catch(err => {
+            res.status(500).send({ message: "Błąd podczas aktualizacji informacji o użytkowniku" });
+        });
+};
+
+// usuń użytkownika po id
+exports.delete = (req, res) => {
+    const id = req.params.id;
+
+    Userdb.findByIdAndDelete(id)
+        .then(data => {
+            if (!data) {
+                res.status(404).send({ message: "Nie można usunąć użytkownika z id " + id + ", być może id jest błędne" });
+            } else {
+                res.send({
+                    message: "Użytkownik został pomyślnie usunięty"
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Nie można usunąć użytkownika z id = " + id
+            });
+        });
+};
+
 exports.login = (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).send({ message: "Email and password are required" });
+        return res.status(400).send({ message: "Email i hasło są wymagane" });
     }
 
     Userdb.findOne({ email: email })
         .then(user => {
             if (!user) {
-                return res.status(404).send({ message: "User not found" });
+                return res.status(404).send({ message: "Nie znaleziono użytkownika" });
             }
 
-            // Assuming you store the passwords in plain text (you should use hashing in real applications)
             if (user.password !== password) {
-                return res.status(400).send({ message: "Incorrect password" });
+                return res.status(400).send({ message: "Nieprawidłowe hasło" });
             }
-
-            // You can generate a token here if needed
-            // For simplicity, we'll just return the user data
             res.send(user);
         })
         .catch(err => {
-            res.status(500).send({ message: err.message || "Error logging in" });
+            res.status(500).send({ message: err.message || "Błąd podczas logowania" });
         });
 };
+
 exports.logout = (req, res) => {
-    // Here you might invalidate the token if you have a mechanism to do so
-    res.status(200).send({ message: "Logged out successfully" });
+    res.status(200).send({ message: "Wylogowano pomyślnie" });
 };
+
 exports.getUserById = (req, res) => {
     const id = req.params.id;
 
     Userdb.findById(id)
         .then(user => {
             if (!user) {
-                return res.status(404).send({ message: "User not found with id " + id });
+                return res.status(404).send({ message: "Nie znaleziono użytkownika z id " + id });
             }
             res.send(user);
         })
         .catch(err => {
-            res.status(500).send({ message: "Error retrieving user with id " + id });
+            res.status 500).send({ message: "Błąd podczas pobierania użytkownika z id " + id });
         });
 };
