@@ -6,7 +6,7 @@
         <img class="login-panel__image-logo" src="@/assets/img/logo.png" alt="logo"/>
       </div>
       <div class="login-panel__form">
-        <h5 class="login-panel__form-header">Panel rejestracji</h5>
+        <h5 class="login-panel__form-header">PANEL REJESTRACJI</h5>
         <form class="form" @submit.prevent="registerAction">
           <div class="form-field">
             <label for="name" class="form-field-label">Imię</label>
@@ -39,7 +39,6 @@
               <small class="">{{ validationErrors?.email[0] }}</small>
             </div>
           </div>
-
           <div class="form-field">
             <label for="address" class="form-field-label">Adres</label>
             <input v-model="address" type="text" class="form-field-input" id="address" name="address" />
@@ -65,10 +64,11 @@
           </div>
 
           <div class="form-field form-field-submit">
-            <button :disabled="isSubmitting" type="submit" class="form-field-submit-button">Zarejestruj się</button>
+            <button :disabled="isSubmitting" type="submit" class="form-field-submit-button">Zarejestruj się <font-awesome-icon icon="arrow-right-to-bracket"/></button>
           </div>
 
           <div class="form-field">
+
             <p class="form-field-text">Masz konto? <router-link class="form-field-text-link" to="/">Zaloguj się tutaj</router-link></p>
           </div>
         </form>
@@ -80,7 +80,6 @@
 
 <script>
 import axios from 'axios';
-
 export default {
   name: 'RegisterPage',
   components: {

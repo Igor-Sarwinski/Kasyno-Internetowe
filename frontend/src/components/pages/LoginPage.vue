@@ -7,7 +7,7 @@
           <img class="login-panel__image-logo" src="@/assets/img/logo.png" alt="logo"/>
         </div>
         <div class="login-panel__form">
-          <h5 class="login-panel__form-header">Panel logowania</h5>
+          <h5 class="login-panel__form-header">PANEL LOGOWANIA</h5>
           <form class="form" @submit.prevent="loginAction">
             <div class="form-field">
               <label for="email" class="form-field-label">
@@ -38,7 +38,7 @@
               <button
                   :disabled="isSubmitting"
                   type="submit"
-                  class="form-field-submit-button">Zaloguj</button>
+                  class="form-field-submit-button">Zaloguj <font-awesome-icon icon="arrow-right-to-bracket"/></button>
             </div>
             <div class="form-field">
               <p class="form-field-text">Nie masz konta?

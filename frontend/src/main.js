@@ -6,6 +6,13 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import DashboardPage from './components/pages/DashboardPage';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+
+
+
 axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 const router = createRouter({
@@ -16,5 +23,10 @@ const router = createRouter({
         { path: '/dashboard', component: DashboardPage },
     ],
 });
-
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
 createApp(App).use(router).mount('#app');
+
+const app = createApp(App);
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.use(router);
+app.mount('#app');
