@@ -1,0 +1,14 @@
+@import "variables.scss";
+@import "login.scss";
+@import "forms.scss";
+@import "font";
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $font-color;
+}
+
+body{
+  background-color: $background;
+}

@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.css';
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';

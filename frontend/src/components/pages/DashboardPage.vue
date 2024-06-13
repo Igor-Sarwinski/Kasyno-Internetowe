@@ -1,10 +1,10 @@
 <template>
   <layout-div>
-    <div class="col justify-content-md-center">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Dashboard</a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
+    <div>
+      <nav>
+        <a href="#">Dashboard</a>
+        <ul>
+          <li>
             <a @click="logoutAction" class="nav-link" aria-current="page" href="#">Logout</a>
           </li>
         </ul>
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import LayoutDiv from '../LayoutDiv.vue';
 // import axios from "axios";
 

@@ -1,0 +1,131 @@
+@import '~@fontsource/source-sans-pro/index.css';
+@import '~@fontsource/source-sans-pro/index.css';
+@import '~@fontsource/source-sans-pro/index.css';
+.login-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-panel {
+  margin: 55px 120px;
+  background-color: #191D24;
+  display: flex;
+  height: calc(100vh - 110px);
+  flex-direction: row;
+  border-radius: 60px;
+  overflow: hidden;
+  width: 100%;
+}
+.login-panel__image {
+  flex: 1;
+  position: relative;
+}
+.login-panel__image-background {
+  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.login-panel__image-logo {
+  margin-right: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 35%;
+}
+.login-panel__form {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-panel__form-header {
+  font-size: 45px;
+  margin-bottom: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  font-size: 19px;
+}
+.form-field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-field-input {
+  width: 75%;
+  background-color: #232931;
+  border-radius: 15px;
+  padding: 4px;
+  color: white;
+  border: 1px solid black;
+  margin: 10px 0;
+  text-align: center;
+}
+.form-field-input-number {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+}
+.form-field-label {
+  align-content: center;
+}
+.form-field-text {
+  color: #EAE7D6;
+}
+.form-field-text-link {
+  text-decoration: none;
+  margin-left: 5px;
+  color: cyan;
+}
+.form-field-submit {
+  width: 100%;
+}
+.form-field-submit-button {
+  width: 100%;
+  font-size: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  border: none;
+  padding: 15px 0;
+  background-color: #EB3224;
+  transition: ease-in 0.3s;
+}
+.form-field-submit-button:hover {
+  background-color: #232931;
+  color: #EB3224;
+  border: 1px solid #EB3224;
+}
+
+@font-face {
+  font-family: "Clash Grotesk-Regular";
+  src: url("~@/assets/fonts/ClashGrotesk-Regular.woff2") format("woff2"), url("~@/assets/fonts/ClashGrotesk-Regular.woff") format("woff"), url("~@/assets/fonts/ClashGrotesk-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Clash Grotesk-Regular", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #EAE7D6;
+}
+
+body {
+  background-color: #232931;
+}
+
+/*# sourceMappingURL=main.css.map */
