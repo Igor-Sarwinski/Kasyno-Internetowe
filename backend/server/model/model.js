@@ -33,6 +33,10 @@ let schema= new mongoose.Schema({
         hidden:true,
         length:9,
     },
+    money:{
+        type:Number,
+        required:true,
+    }
 })
 
 const Userdb=mongoose.model('userdb',schema);
