@@ -1,6 +1,6 @@
 <template>
+  <div class="dashboard">
   <side-menu/>
-  <layout-div>
     <div>
       <nav>
         <a href="#">Dashboard</a>
@@ -12,11 +12,10 @@
       </nav>
       <h2 class="text-center mt-5">Welcome, {{ user?.name }}!</h2>
     </div>
-  </layout-div>
+  </div>
 </template>
 
 <script>
-import LayoutDiv from '../LayoutDiv.vue';
 import SideMenu from "../SideMenu.vue";
 // import axios from "axios";
 
@@ -24,7 +23,6 @@ export default {
   name: 'DashboardPage',
   components: {
     SideMenu,
-    LayoutDiv,
   },
   data() {
     return {

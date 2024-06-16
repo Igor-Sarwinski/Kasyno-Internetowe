@@ -1,7 +1,8 @@
-@charset "UTF-8";
 @import '~@fontsource/source-sans-pro/index.css';
 @import '~@fontsource/source-sans-pro/index.css';
 @import '~@fontsource/source-sans-pro/index.css';
+@import '~@fontsource/source-sans-pro/index.css';
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0");
 .login-container {
   display: flex;
   width: 100%;
@@ -9,7 +10,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .login-panel {
   margin: 55px 120px;
   background-color: #191D24;
@@ -101,6 +101,8 @@
   padding: 15px 0;
   background-color: #EB3224;
   transition: ease-in 0.3s;
+  justify-content: center;
+  align-items: center;
 }
 .form-field-submit-button:hover {
   background-color: #232931;
@@ -118,10 +120,135 @@ body {
   font-family: "Clash Grotesk-Regular", sans-serif;
 }
 
-.menu__nav-item-icon {
+.menu {
+  width: 250px;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  background-color: #2A313B;
+  box-shadow: 0 0 3px #000;
   color: white;
-  fill: red;
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Przykładowa zmiana koloru na biały */
+}
+.menu__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.menu__logo-image {
+  padding: 15px;
+  max-height: 100%;
+}
+.menu__profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 0 10px;
+}
+.menu__profile-avatar {
+  flex: 0 0 50%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.menu__profile-avatar-background {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+  background-color: #EB3224;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #5d5d5d;
+}
+.menu__profile-avatar-image {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  object-fit: cover;
+  z-index: 2;
+}
+.menu__profile-name {
+  align-content: center;
+  flex: 0 0 50%;
+  font-size: 1.3rem;
+}
+.menu__profile-money {
+  margin: 15px 0;
+  align-content: center;
+  flex: 0 0 35%;
+}
+.menu__profile-value {
+  margin: 15px 0;
+  flex: 0 0 65%;
+  color: #EB3224;
+  text-shadow: 1px 1px black;
+}
+.menu__separator {
+  height: 1px;
+  width: 100%;
+  background-color: #D8D8D8;
+  opacity: 10%;
+  margin: 15px 0;
+}
+.menu__nav {
+  margin: 30px 0;
+}
+.menu__nav-item {
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: white;
+  transition: background-color 0.5s ease-in-out;
+}
+.menu__nav-item::before {
+  content: "";
+  background-color: #EB3224;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0;
+  transition: height 0.3s ease-in;
+}
+.menu__nav-item:hover, .menu__nav-item:hover > .menu__nav-item-link {
+  background-color: #191D24;
+  color: #EB3224;
+  margin-left: 1px;
+}
+.menu__nav-item:hover::before, .menu__nav-item:hover > .menu__nav-item-link::before {
+  height: 100%;
+}
+.menu__nav-item-icon {
+  flex: 0 0 30%;
+  padding-left: 25px;
+}
+.menu__nav-item-link {
+  color: white;
+  flex: 1;
+  text-decoration: none;
+}
+.menu__logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu__logout-link {
+  text-decoration: none;
+  color: white;
+  transition: font-size 0.5s ease-in, padding 0.5s ease-in;
+}
+.menu__logout-link:hover {
+  font-size: 1.5rem;
+  padding: 25px 0;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
 }
 
 * {

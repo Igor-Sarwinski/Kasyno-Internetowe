@@ -11,9 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
-
-
-axios.defaults.baseURL = process.env.VUE_APP_API_URL
+axios.defaults.baseURL = process.env.VUE_APP_API_URL;
 
 const router = createRouter({
     history: createWebHistory(),
@@ -23,8 +21,6 @@ const router = createRouter({
         { path: '/dashboard', component: DashboardPage },
     ],
 });
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
-createApp(App).use(router).mount('#app');
 
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon);

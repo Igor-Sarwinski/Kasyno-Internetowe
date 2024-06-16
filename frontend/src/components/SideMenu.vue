@@ -3,7 +3,7 @@
     <div class="menu__logo">
       <img class="menu__logo-image" src="@/assets/img/logo.png" alt="logo"/>
     </div>
-    <div class="menu_profile">
+    <div class="menu__profile">
       <div class="menu__profile-avatar">
         <div class="menu__profile-avatar-background"/>
         <img class="menu__profile-avatar-image" src="@/assets/img/avatar.jpeg" alt="logo"/>
@@ -12,43 +12,47 @@
         <h5 class="login-panel__profile-name-text">Igor Sarwiński</h5>
       </div>
       <div class="menu__profile-money">
-        <p class="menu__profile-money-text">Waluta: </p>
-        <p class="menu__profile-money-value">1501555</p>
+        <span class="menu__profile-money-text">Waluta: </span>
+      </div>
+      <div class="menu__profile-value">
+        <span class="menu__profile-value-text">1501555 euro gąbek</span>
       </div>
     </div>
     <div class="menu__separator"/>
-    <div class="menu__nav">
-      <div class="menu__nav-item">
-        <img class="menu__nav-item-icon" :src="require('@/assets/img/menu/strona-glowna.svg')" alt="home"/>
-        <p><router-link class="menu__nav-item-link" to="/register">Strona główna</router-link></p>
-      </div>
-      <div class="menu__nav-item">
-        <font-awesome-icon class="menu__nav-item-icon" icon="user"/>
-        <router-link class="menu__nav-item-link" to="/register">Profil</router-link>
-      </div>
-      <div class="menu__nav-item">
-        <font-awesome-icon class="menu__nav-item-icon" icon="card"/>
-        <router-link class="menu__nav-item-link" to="/register">Ruletka</router-link>
-      </div>
-      <div class="menu__nav-item">
-        <font-awesome-icon class="menu__nav-item-icon" icon="house"/>
-        <router-link class="menu__nav-item-link" to="/register">Blackjack</router-link>
-      </div>
-      <div class="menu__nav-item">
-        <font-awesome-icon class="menu__nav-item-icon" icon="house"/>
-        <router-link class="menu__nav-item-link" to="/register">Sloty</router-link>
-      </div>
-      <div class="menu__nav-item">
-        <font-awesome-icon class="menu__nav-item-icon" icon="house"/>
-        <router-link class="menu__nav-item-link" to="/register">Ranking</router-link>
-      </div>
-      <div class="menu__nav-item">
-        <font-awesome-icon class="menu__nav-item-icon" icon="house"/>
-        <router-link class="menu__nav-item-link" to="/register">Informacje</router-link>
-      </div>
-    </div>
+    <ul class="menu__nav">
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">home</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Strona główna</p></router-link>
+      </li>
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">person</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Profil</p></router-link>
+      </li>
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">poker_chip</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Ruletka</p></router-link>
+      </li>
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">playing_cards</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Blackjack</p></router-link>
+      </li>
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">joystick</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Sloty</p></router-link>
+      </li>
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">leaderboard</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Ranking</p></router-link>
+      </li>
+      <li class="menu__nav-item">
+        <span class="material-symbols-outlined menu__nav-item-icon">contract</span>
+        <router-link class="menu__nav-item-link" to="/register"><p>Informacje</p></router-link>
+      </li>
+    </ul>
     <div class="menu__separator"/>
     <div class="menu__logout">
+      <a @click="logoutAction" class="menu__logout-link" aria-current="page" href="#">Wyloguj</a>
+      <span class="material-symbols-outlined menu__nav-item-icon">logout</span>
     </div>
     <div class="menu__separator"/>
   </div>
@@ -57,5 +61,11 @@
 <script>
 export default {
   name: 'SideMenu',
+  methods: {
+    logoutAction() {
+      localStorage.removeItem('id');
+      this.$router.push('/');
+    }
+  }
 };
 </script>
