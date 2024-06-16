@@ -16,7 +16,8 @@
     "axios": "^1.7.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vue-template-compiler": "^2.7.16"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -29,7 +30,8 @@
     "file-loader": "^6.2.0",
     "sass": "^1.77.4",
     "sass-loader": "^14.2.1",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "vue-svg-loader": "^0.16.0"
   },
   "eslintConfig": {
     "root": true,

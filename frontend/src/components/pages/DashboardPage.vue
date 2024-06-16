@@ -1,4 +1,5 @@
 <template>
+  <side-menu/>
   <layout-div>
     <div>
       <nav>
@@ -16,11 +17,13 @@
 
 <script>
 import LayoutDiv from '../LayoutDiv.vue';
+import SideMenu from "../SideMenu.vue";
 // import axios from "axios";
 
 export default {
   name: 'DashboardPage',
   components: {
+    SideMenu,
     LayoutDiv,
   },
   data() {

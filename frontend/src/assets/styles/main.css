@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import '~@fontsource/source-sans-pro/index.css';
 @import '~@fontsource/source-sans-pro/index.css';
 @import '~@fontsource/source-sans-pro/index.css';
@@ -115,6 +116,12 @@
 }
 body {
   font-family: "Clash Grotesk-Regular", sans-serif;
+}
+
+.menu__nav-item-icon {
+  color: white;
+  fill: red;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Przykładowa zmiana koloru na biały */
 }
 
 * {
