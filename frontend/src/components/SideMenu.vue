@@ -34,19 +34,19 @@
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">playing_cards</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Blackjack</p></router-link>
+        <router-link class="menu__nav-item-link" to="/blackjack"><p>Blackjack</p></router-link>
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">joystick</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Sloty</p></router-link>
+        <router-link class="menu__nav-item-link" to="/slots"><p>Sloty</p></router-link>
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">leaderboard</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Ranking</p></router-link>
+        <router-link class="menu__nav-item-link" to="/ranking"><p>Ranking</p></router-link>
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">contract</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Informacje</p></router-link>
+        <router-link class="menu__nav-item-link" to="/info"><p>Informacje</p></router-link>
       </li>
     </ul>
     <div class="menu__separator"/>
