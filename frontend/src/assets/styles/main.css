@@ -262,4 +262,9 @@ body {
   background-color: #232931;
 }
 
+.page {
+  display: flex;
+  flex-direction: row;
+}
+
 /*# sourceMappingURL=main.css.map */

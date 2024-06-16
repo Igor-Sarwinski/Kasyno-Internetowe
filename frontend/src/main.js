@@ -9,6 +9,8 @@ import DashboardPage from './components/pages/DashboardPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import RoulettePage from "./components/pages/RoulettePage.vue";
+import ProfilePage from "./components/pages/ProfilePage.vue";
 library.add(fas);
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL;
@@ -19,6 +21,8 @@ const router = createRouter({
         { path: '/', component: LoginPage },
         { path: '/register', component: RegisterPage },
         { path: '/dashboard', component: DashboardPage },
+        { path: '/profile', component: ProfilePage },
+        { path: '/roulette', component: RoulettePage },
     ],
 });
 

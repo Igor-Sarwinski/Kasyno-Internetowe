@@ -22,15 +22,15 @@
     <ul class="menu__nav">
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">home</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Strona główna</p></router-link>
+        <router-link class="menu__nav-item-link" to="/dashboard"><p>Strona główna</p></router-link>
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">person</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Profil</p></router-link>
+        <router-link class="menu__nav-item-link" to="/profile"><p>Profil</p></router-link>
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">poker_chip</span>
-        <router-link class="menu__nav-item-link" to="/register"><p>Ruletka</p></router-link>
+        <router-link class="menu__nav-item-link" to="/roulette"><p>Ruletka</p></router-link>
       </li>
       <li class="menu__nav-item">
         <span class="material-symbols-outlined menu__nav-item-icon">playing_cards</span>
