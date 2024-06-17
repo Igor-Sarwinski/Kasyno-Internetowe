@@ -1,9 +1,9 @@
 <template>
-  <div class="page dashboard">
-  <side-menu/>
+  <div class="page profile">
+    <side-menu/>
     <div>
-      <h1>Strona główna</h1>
-  </div>
+      <h1>Ruletka</h1>
+    </div>
   </div>
 </template>
 
@@ -11,9 +11,11 @@
 import SideMenu from "../SideMenu.vue";
 
 export default {
-  name: 'DashboardPage',
+  name: 'RoulettePage',
   components: {
     SideMenu,
   },
 };
 </script>
+
+

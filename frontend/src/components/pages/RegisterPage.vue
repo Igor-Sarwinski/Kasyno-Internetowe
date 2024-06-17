@@ -1,166 +1,88 @@
 <template>
-  <layout-div>
-    <div class="row justify-content-md-center mt-5">
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title mb-4">Panel rejestracji</h5>
-            <form >
-              <div class="mb-3">
-                <label
-                    htmlFor="name"
-                    class="form-label">Imię
-                </label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    name="name"
-                    v-model="name"
-                />
-                <div v-if="validationErrors.name" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.name[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="mb-3">
-                <label
-                    htmlFor="surname"
-                    class="form-label">Nazwisko
-                </label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="surname"
-                    name="surname"
-                    v-model="surname"
-                />
-                <div v-if="validationErrors.surname" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.surname[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="mb-3">
-                <label
-                    htmlFor="nickname"
-                    class="form-label">Nazwa
-                </label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="nickname"
-                    name="nickname"
-                    v-model="nickname"
-                />
-                <div v-if="validationErrors.nickname" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.nickname[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="mb-3">
-                <label
-                    htmlFor="email"
-                    class="form-label">Adres email
-                </label>
-                <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    v-model="email"
-                />
-                <div v-if="validationErrors.email" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.email[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="mb-3">
-                <label
-                    htmlFor="address"
-                    class="form-label">Adres
-                </label>
-                <input
-                    type="text"
-                    class="form-control"
-                    id="address"
-                    name="address"
-                    v-model="address"
-                />
-                <div v-if="validationErrors.address" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.address[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="mb-3">
-                <label
-                    htmlFor="phone"
-                    class="form-label">Telefon
-                </label>
-                <input
-                    type="number"
-                    maxlength="9"
-                    minlength="9"
-                    class="form-control"
-                    id="phone"
-                    name="phone"
-                    v-model="phone"
-                />
-                <div v-if="validationErrors.phone" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.phone[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="mb-3">
-                <label
-                    htmlFor="password"
-                    class="form-label">Hasło
-                </label>
-                <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    name="password"
-                    v-model="password"
-                />
-                <div v-if="validationErrors.password" class="flex flex-col">
-                  <small  class="text-danger">
-                    {{validationErrors?.password[0]}}
-                  </small >
-                </div>
-              </div>
-              <div class="d-grid gap-2">
-                <button
-                    :disabled="isSubmitting"
-                    @click="registerAction()"
-                    type="button"
-                    class="btn btn-primary btn-block">Zarejestruj się
-                </button>
-                <p
-                    class="text-center">Masz konto ?  <router-link to="/">Zaloguj się tutaj</router-link>
-                </p>
-              </div>
-            </form>
+  <div class="login-container">
+    <div class="login-panel">
+      <div class="login-panel__image">
+        <img class="login-panel__image-background" src="../../assets/img/login/background.webp" alt="">
+        <img class="login-panel__image-logo" src="@/assets/img/logo.png" alt="logo"/>
+      </div>
+      <div class="login-panel__form">
+        <h5 class="login-panel__form-header">PANEL REJESTRACJI</h5>
+        <form class="form" @submit.prevent="registerAction">
+          <div class="form-field">
+            <label for="name" class="form-field-label">Imię</label>
+            <input v-model="name" type="text" class="form-field-input" id="name" name="name" />
+            <div v-if="validationErrors.name">
+              <small class="">{{ validationErrors?.name[0] }}</small>
+            </div>
           </div>
-        </div>
+
+          <div class="form-field">
+            <label for="surname" class="form-field-label">Nazwisko</label>
+            <input v-model="surname" type="text" class="form-field-input" id="surname" name="surname" />
+            <div v-if="validationErrors.surname">
+              <small class="">{{ validationErrors?.surname[0] }}</small>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="nickname" class="form-field-label">Nazwa</label>
+            <input v-model="nickname" type="text" class="form-field-input" id="nickname" name="nickname" />
+            <div v-if="validationErrors.nickname">
+              <small class="">{{ validationErrors?.nickname[0] }}</small>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="email" class="form-field-label">Adres email</label>
+            <input v-model="email" type="email" class="form-field-input" id="email" name="email" />
+            <div v-if="validationErrors.email">
+              <small class="">{{ validationErrors?.email[0] }}</small>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="address" class="form-field-label">Adres</label>
+            <input v-model="address" type="text" class="form-field-input" id="address" name="address" />
+            <div v-if="validationErrors.address">
+              <small class="">{{ validationErrors?.address[0] }}</small>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="phone" class="form-field-label">Telefon</label>
+            <input v-model="phone" type="number" class="form-field-input form-field-input-number" id="phone" name="phone" minlength="9" maxlength="9" />
+            <div v-if="validationErrors.phone">
+              <small class="">{{ validationErrors?.phone[0] }}</small>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="password" class="form-field-label">Hasło</label>
+            <input v-model="password" type="password" class="form-field-input form-field-input-password" id="password" name="password" />
+            <div v-if="validationErrors.password">
+              <small class="">{{ validationErrors?.password[0] }}</small>
+            </div>
+          </div>
+
+          <div class="form-field form-field-submit">
+            <button :disabled="isSubmitting" type="submit" class="form-field-submit-button">Zarejestruj się <font-awesome-icon icon="arrow-right-to-bracket"/></button>
+          </div>
+
+          <div class="form-field">
+
+            <p class="form-field-text">Masz konto? <router-link class="form-field-text-link" to="/">Zaloguj się tutaj</router-link></p>
+          </div>
+        </form>
+
       </div>
     </div>
-  </layout-div>
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
-import LayoutDiv from '../LayoutDiv.vue';
-
 export default {
   name: 'RegisterPage',
   components: {
-    LayoutDiv,
   },
   data() {
     return {

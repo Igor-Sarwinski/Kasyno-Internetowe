@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Clash Grotesk-Regular";
+  src: url("~@/assets/fonts/ClashGrotesk-Regular.woff2") format("woff2"), url("~@/assets/fonts/ClashGrotesk-Regular.woff") format("woff"), url("~@/assets/fonts/ClashGrotesk-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Clash Grotesk-Regular", sans-serif;
+}
+
+/*# sourceMappingURL=font.css.map */

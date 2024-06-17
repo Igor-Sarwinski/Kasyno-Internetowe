@@ -2,45 +2,49 @@
 
 <main id="site-main">
     <div class="container">
-        <div class="box-nav d-flex justify-between">
-            <a href="/" class="border-shadow">
+        <div class="box-nav">
+            <a href="/" class="border-shadow btn-add">
                 <span class=""><i class="fas fa-angle-double-left"></i> Powrót do listy</span>
             </a>
         </div>
-        <div class="form-title text-center" >
-            <h2 class="text-dark">Zaktualizuj użytkownika</h2>
-            <span class="text-light">Użyj formularza ponizej do aktualizacji konta</span>
+        <div class="form-title" >
+            <h2 class="">Zaktualizuj użytkownika</h2>
+            <span class="">Użyj formularza ponizej do aktualizacji konta</span>
         </div>
         <form method="post" id="update_user">
             <div class="new_user">
                 <div class="form-group">
-                    <label for="name" class="text-light">Imię</label>
+                    <label for="name" class="">Imię</label>
                     <input type="hidden" name="id" value="<%=user._id%>">
                     <input type="text" name="name" value="<%=user.name%>" placeholder="Podaj imię">
                 </div>
                 <div class="form-group">
-                    <label for="surname" class="text-light">Nazwisko</label>
+                    <label for="surname" class="">Nazwisko</label>
                     <input type="text" name="surname" value="<%=user.surname%>" placeholder="Podaj nazwisko">
                 </div>
                 <div class="form-group">
-                    <label for="nickname" class="text-light">Nazwa</label>
+                    <label for="nickname" class="">Nazwa</label>
                     <input type="text" name="nickname" value="<%=user.nickname%>" placeholder="Podaj swoja nazwe">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="text-light">Email</label>
+                    <label for="email" class="">Email</label>
                     <input type="text" name="email" value="<%=user.email%>" placeholder="Podaj email">
                 </div>
                 <div class="form-group">
-                    <label for="address" class="text-light">Adres</label>
+                    <label for="address" class="">Adres</label>
                     <input type="text" name="address" value="<%=user.address%>" placeholder="Podaj swoj adres">
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="text-light">Telefon</label>
-                    <input type="text" name="phone" value="<%=user.phone%>" placeholder="Podaj telefon">
+                    <label for="phone" class="">Telefon</label>
+                    <input type="number" name="phone" value="<%=user.phone%>" placeholder="Podaj telefon">
                 </div>
                 <div class="form-group">
-                    <label for="password" class="text-light">Haslo</label>
+                    <label for="password" class="">Haslo</label>
                     <input type="password" name="password" value="<%=user.password%>" placeholder="Podaj haslo">
+                </div>
+                <div class="form-group">
+                    <label for="money" class="">Waluta</label>
+                    <input type="number" name="money" value="<%=user.money%>">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn text-dark update">Zapisz</button>

@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-var schema=new mongoose.Schema({
+let schema= new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -33,6 +33,10 @@ var schema=new mongoose.Schema({
         hidden:true,
         length:9,
     },
+    money:{
+        type:Number,
+        required:true,
+    }
 })
 
 const Userdb=mongoose.model('userdb',schema);
