@@ -16,7 +16,7 @@ exports.create = (req, res) => {
         address: req.body.address,
         phone: req.body.phone,
         password: req.body.password,
-        money: 0,
+        money: req.body.money,
     });
 
     // zapisz użytkownika w bazie danych

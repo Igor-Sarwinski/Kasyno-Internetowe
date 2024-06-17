@@ -86,7 +86,7 @@ nav a > span{
 
 table{
     border-spacing: 0px;
-    width: 100%;
+    width: 1200px;
     border: 1px solid black;
     box-shadow: 0 0 5px #00000050;
     background-color: white;
@@ -160,8 +160,8 @@ padding: .5em 0;
     justify-content: space-between;
 }
 
-#update_user .form-group input[type="text"],#update_user .form-group input[type="password"],
-#add_user .form-group input[type="text"],#add_user .form-group input[type="password"]{
+#update_user .form-group input[type="text"],#update_user .form-group input[type="password"],#update_user .form-group input[type="number"],
+#add_user .form-group input[type="text"],#add_user .form-group input[type="password"],#add_user .form-group input[type="number"]{
     width: 85%;
     padding: .6em 1em;
     margin: .5em 0;
