@@ -41,6 +41,6 @@ Przejdź do katalogu "frontend" i odpal:
 
 ```sh
 cd ./frontend
-npm run serve
+npm run dev
 ```
-Aplikacja będzie dostępny pod adresem: http://localhost:8080
+Aplikacja będzie dostępny pod adresem: http://localhost:5173
