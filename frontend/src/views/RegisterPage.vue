@@ -1,9 +1,55 @@
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+
+const name = ref('');
+const surname = ref('');
+const nickname = ref('');
+const email = ref('');
+const phone = ref('');
+const address = ref('');
+const password = ref('');
+const validationErrors = ref({});
+const isSubmitting = ref(false);
+const router = useRouter();
+
+const registerAction = async () => {
+  isSubmitting.value = true;
+  const payload = {
+    name: name.value,
+    surname: surname.value,
+    nickname: nickname.value,
+    email: email.value,
+    address: address.value,
+    phone: phone.value,
+    password: password.value,
+    money: 0,
+  };
+
+  try {
+    const response = await axios.post('http://localhost:3000/api/users', payload);
+    console.log(response);
+    router.push('/');
+  } catch (error) {
+    isSubmitting.value = false;
+    console.error("Error details:", error.response);
+    if (error.response && error.response.data) {
+      validationErrors.value = error.response.data.errors || { message: error.response.data.message };
+    } else {
+      validationErrors.value = { message: 'Błąd serwera' };
+    }
+  }
+};
+</script>
+
 <template>
+
   <div class="login-container">
     <div class="login-panel">
       <div class="login-panel__image">
-        <img class="login-panel__image-background" src="../../assets/img/login/background.webp" alt="">
-        <img class="login-panel__image-logo" src="@/assets/img/logo.png" alt="logo"/>
+        <img class="login-panel__image-background" src="../assets/img/login/background.webp" alt="">
+        <img class="login-panel__image-logo" src="../assets/img/logo.png" alt="logo"/>
       </div>
       <div class="login-panel__form">
         <h5 class="login-panel__form-header">PANEL REJESTRACJI</h5>
@@ -77,54 +123,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import axios from 'axios';
-export default {
-  name: 'RegisterPage',
-  components: {
-  },
-  data() {
-    return {
-      name:'',
-      surname:'',
-      nickname:'',
-      email:'',
-      address:'',
-      phone:'',
-      password:'',
-      validationErrors:{},
-      isSubmitting:false,
-    }
-  },
-  created() {
-  },
-  methods: {
-    registerAction(){
-      this.isSubmitting = true
-      let payload = {
-        name:this.name,
-        surname:this.surname,
-        nickname:this.nickname,
-        email: this.email,
-        address:this.address,
-        phone:this.phone,
-        password: this.password,
-      }
-      axios.post('/api/users', payload)
-          .then(response => {
-            // localStorage.setItem('token', response.data.token)
-            this.$router.push('/')
-            return response
-          })
-          .catch(error => {
-            this.isSubmitting = false
-            if (error.response.data.errors !== undefined) {
-              this.validationErrors = error.response.data.errors
-            }
-            return error
-          });
-    }
-  },
-};
-</script>

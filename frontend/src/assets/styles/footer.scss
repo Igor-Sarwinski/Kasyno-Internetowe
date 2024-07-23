@@ -1,0 +1,41 @@
+@import "variables";
+.footer{
+  bottom: 0;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  background: #191D24;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width:86%;
+  padding: 0 15px;
+  border-top: 1px solid #555;
+  border-left: 1px solid #333;
+  &__copyright-link{
+    text-decoration: none;
+    color: white;
+    &:hover{
+      color: $red-accents;
+    }
+  }
+  &__menu{
+    margin-right: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    &-item{
+      padding:0 7px;
+&-link{
+  font-size: 0.85rem;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover{
+    color:$red-accents;
+  }
+}
+    }
+  }
+}

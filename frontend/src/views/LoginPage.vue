@@ -1,10 +1,49 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+
+const email = ref('');
+const password = ref('');
+const validationErrors = ref('');
+const isSubmitting = ref(false);
+const router = useRouter();
+
+onMounted(() => {
+  if (localStorage.getItem('token')) {
+    router.push('/dashboard');
+  }
+});
+
+const loginAction =  async () => {
+  isSubmitting.value = true;
+  const payload = {
+    email: email.value,
+    password: password.value,
+  };
+  await axios.post('/api/login', payload)
+    .then(response => {
+      // localStorage.setItem('token', response.data.token)
+      localStorage.setItem('user', JSON.stringify(response.data));
+      router.push('/dashboard');
+    })
+    .catch(error => {
+      isSubmitting.value = false;
+      if (error.response && error.response.data) {
+        validationErrors.value = error.response.data.message;
+      } else {
+        validationErrors.value = 'Błąd serwera';
+      }
+    });
+}
+</script>
 
 <template>
   <div class="login-container">
       <div class="login-panel">
         <div class="login-panel__image">
-          <img class="login-panel__image-background" src="../../assets/img/login/background.webp" alt="">
-          <img class="login-panel__image-logo" src="@/assets/img/logo.png" alt="logo"/>
+          <img class="login-panel__image-background" src="../assets/img/login/background.webp" alt="">
+          <img class="login-panel__image-logo" src="../assets/img/logo.png" alt="logo"/>
         </div>
         <div class="login-panel__form">
           <h5 class="login-panel__form-header">PANEL LOGOWANIA</h5>
@@ -51,55 +90,3 @@
       </div>
   </div>
 </template>
-
-
-<script>
-import axios from 'axios';
-
-export default {
-  name: 'LoginPage',
-  components: {
-
-  },
-  data() {
-    return {
-      email: '',
-      password: '',
-      validationErrors: '',
-      isSubmitting: false,
-    };
-  },
-  created() {
-    if (localStorage.getItem('token')) {
-      this.$router.push('/dashboard');
-    }
-  },
-  methods: {
-    loginAction() {
-      this.isSubmitting = true;
-      const payload = {
-        email: this.email,
-        password: this.password,
-      };
-      axios.post('/api/login', payload)
-          .then(response => {
-            console.log(response);
-            localStorage.setItem('id', response.data._id);
-            console.log(response.data._id);
-            this.$router.push('/dashboard');
-          })
-          .catch(error => {
-            this.isSubmitting = false;
-            if (error.response && error.response.data) {
-              this.validationErrors = error.response.data.message;
-            } else {
-              this.validationErrors = 'An error occurred while trying to login';
-            }
-          });
-    }
-  },
-};
-</script>
-<style lang="scss">
-@import '@/assets/styles/login.scss';
-</style>
