@@ -8,7 +8,7 @@ const route = useRoute()
 
 const isLogged = computed(() => {
   return route.path !== '/' && route.path !== '/register'
-})
+});
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const isLogged = computed(() => {
     <SideMenu v-if="isLogged"/>
     <div class="main-content">
       <HeaderPanel v-if="isLogged"/>
-      <RouterView/>
+      <RouterView :class="{ page: isLogged }" />
       <FooterPanel v-if="isLogged"/>
 
     </div>

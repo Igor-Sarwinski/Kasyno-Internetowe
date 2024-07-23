@@ -10,9 +10,9 @@ const isSubmitting = ref(false);
 const router = useRouter();
 
 onMounted(() => {
-  if (localStorage.getItem('token')) {
-    router.push('/dashboard');
-  }
+  // if (localStorage.getItem('token')) {
+  //   router.push('/dashboard');
+  // }
 });
 
 const loginAction =  async () => {
@@ -23,7 +23,7 @@ const loginAction =  async () => {
   };
   await axios.post('/api/login', payload)
     .then(response => {
-      // localStorage.setItem('token', response.data.token)
+      localStorage.setItem('token', response.data._id)
       localStorage.setItem('user', JSON.stringify(response.data));
       router.push('/dashboard');
     })
