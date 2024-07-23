@@ -1,11 +1,13 @@
 @import "variables";
 .menu{
-  width: 250px;
+  grid-row: 1 / span 2;
+  min-width: 250px;
+  max-width: 250px;
   overflow: hidden;
   height: 100vh;
-  position: relative;
+  position: fixed;
   background-color: $background-light;
-  box-shadow: 0 0 3px #000 ;
+  box-shadow: 0 0 3px #444444 ;
   color:white;
   &__logo {
     display: flex;

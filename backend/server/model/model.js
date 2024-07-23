@@ -35,7 +35,7 @@ let schema= new mongoose.Schema({
     },
     money:{
         type:Number,
-        required:true,
+        required:true
     }
 })
 
