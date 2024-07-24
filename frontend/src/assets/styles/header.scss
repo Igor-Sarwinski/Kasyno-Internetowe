@@ -19,6 +19,7 @@
   }
   &-profile{
   background-color: $background-mega-light ;
+
     height: 100%;
     margin:15px 40px;
     border-radius: 20px;
@@ -28,10 +29,15 @@
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 0 10px #373737;
+    text-decoration: none;
     &-infos{
+
+      text-decoration: none;
+      color: $red-accents;
       width: 30%;
       text-align: center;
       &-text{
+        text-decoration: none !important;
         margin:10px 0;
         &--red{
           color:$red-accents;

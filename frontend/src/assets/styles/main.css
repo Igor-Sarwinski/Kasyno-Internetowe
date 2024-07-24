@@ -335,12 +335,16 @@ body {
   justify-content: space-around;
   align-items: center;
   box-shadow: 0 0 10px #373737;
+  text-decoration: none;
 }
 .page__header-profile-infos {
+  text-decoration: none;
+  color: #EB3224;
   width: 30%;
   text-align: center;
 }
 .page__header-profile-infos-text {
+  text-decoration: none !important;
   margin: 10px 0;
 }
 .page__header-profile-infos-text--red {

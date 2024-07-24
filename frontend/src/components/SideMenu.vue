@@ -25,8 +25,10 @@ const menuItems = ref([
     </div>
     <div class="menu__profile">
       <div class="menu__profile-avatar">
+        <router-link :to="'/profile'">
         <div class="menu__profile-avatar-background"/>
         <img alt="logo" class="menu__profile-avatar-image" src="../assets/img/avatar.jpeg"/>
+        </router-link>
       </div>
       <div class="menu__profile-name">
         <h5 class="login-panel__profile-name-text">{{user?.name || 'Imię' }}</h5>
