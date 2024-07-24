@@ -4,6 +4,7 @@
 @import '@fontsource/source-sans-pro/index.css';
 @import '@fontsource/source-sans-pro/index.css';
 @import '@fontsource/source-sans-pro/index.css';
+@import '@fontsource/source-sans-pro/index.css';
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0");
 .login-container {
   display: flex;
@@ -399,6 +400,53 @@ body {
 }
 .footer__menu-item-link:hover {
   color: #EB3224;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+}
+.info__block {
+  width: 40%;
+  background: #2A313B;
+  border-radius: 35px;
+  margin: 0 15px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.info__block--bigger {
+  width: 60%;
+}
+.info__block-header {
+  font-size: 3rem;
+}
+.info__block-item {
+  overflow: hidden;
+  background: #232931;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px 0;
+}
+.info__block-item-img {
+  padding: 15px;
+  width: 85%;
+  height: auto;
+}
+.info__block-list {
+  list-style: upper-roman;
+  font-size: 0.9em;
+  text-align: left;
+  padding: 0 10px;
+}
+.info__block-list-item p {
+  margin: 0 10px;
+}
+.info__block-list-item strong {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 * {

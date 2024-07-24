@@ -1,0 +1,9 @@
+.info {
+  display: flex;
+  flex-direction: row;
+}
+.info__block {
+  max-width: 30%;
+}
+
+/*# sourceMappingURL=info.css.map */
