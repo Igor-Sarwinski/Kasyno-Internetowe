@@ -17,4 +17,5 @@ route.delete('/api/users/:id',controller.delete)
 route.post('/api/login', controller.login);
 route.post('/api/logout', controller.logout);
 route.get('/api/user/:id', controller.getUserById);
+route.get('/api/top-users', controller.getTopUsers);
 module.exports=route

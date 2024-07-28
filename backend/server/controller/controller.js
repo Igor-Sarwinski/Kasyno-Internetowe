@@ -143,3 +143,16 @@ exports.getUserById = (req, res) => {
             res.status(500).send({ message: "Błąd podczas pobierania użytkownika z id " + id });
         });
 };
+
+
+//ranking top 10
+exports.getTopUsers = (req, res) => {
+  Userdb.find().sort({ money: -1 }).limit(10)
+    .then(users => {
+      res.send(users);
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message || "Wystąpił błąd podczas pobierania użytkowników" });
+    });
+};
+
