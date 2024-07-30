@@ -1,11 +1,11 @@
 <script setup>
 import {onMounted, ref } from 'vue'
-import { useLogout } from '@/utils/utils.js'
+import { fetchUser, useLogout } from '@/utils/utils.js'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 const user = ref('')
-onMounted(async () => {
-  user.value = JSON.parse(localStorage.getItem('user'))
+onMounted( async () => {
+  user.value = await fetchUser()
 });
 const logoutAction = useLogout();
 

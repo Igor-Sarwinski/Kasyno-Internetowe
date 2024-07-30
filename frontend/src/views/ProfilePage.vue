@@ -1,9 +1,10 @@
 <script setup>
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
+import { fetchUser, setUserMoney, setUserWins } from '@/utils/utils.js'
 const user = ref(null)
-onMounted(() => {
-  user.value = JSON.parse(localStorage.getItem('user'));
+onMounted(async () => {
+  user.value = await fetchUser()
   if (user.value) {
     name.value = user.value.name;
     surname.value = user.value.surname;
@@ -16,6 +17,7 @@ onMounted(() => {
     wins.value = user.value.wins;
   }
 });
+
 const name = ref('');
 const surname = ref('');
 const nickname = ref('');
@@ -25,6 +27,7 @@ const address = ref('');
 const password = ref('');
 const money = ref('');
 const wins = ref('');
+
 const updateAction =  async () => {
   const payload = {
     name: name.value,
@@ -37,25 +40,19 @@ const updateAction =  async () => {
     money: money.value,
     wins: wins.value
   };
-  const userId = user.value._id;
-  await axios.put(`/api/users/${userId}`, payload)
-    .then(response => {
-      console.log(response)
-      localStorage.removeItem('user');
-      localStorage.setItem('token', response.data._id)
-      localStorage.setItem('user', JSON.stringify(response.data));
-      alert('Zaktualizowano użytkownika');
-    })
-    .catch(error => {
-      console.log(error)
-    });
-
+  try{
+    const userId = user.value._id;
+    await axios.put(`/api/users/${userId}`, payload)
+    alert('Zaktualizowano użytkownika');
+  }catch(error){
+    console.log(error)
+  }
 }
-const resetWins = () =>{
-  alert('Reset wygranych');
-}
-const resetMoney = () =>{
-  alert('Reset waluty');
+const resetStats = () =>{
+  setUserMoney(1000);
+  setUserWins(0);
+  alert('Reset');
+  window.location.reload();
 }
 const editPhoto = () =>{
   alert('Edycja zdjecia');
@@ -66,23 +63,21 @@ const editPhoto = () =>{
   <div class="profile">
 
     <div class="profile__options">
-      <span class="profile__options-header">Zdjęcie</span>
       <div class="profile__options-item">
+        <span class="profile__options-header">Zdjęcie</span>
         <div class="profile__options-avatar">
           <img class="profile__options-avatar-image" src="../assets/img/avatar.jpeg" alt="logo"/>
         </div>
         <button @click="editPhoto" class="profile__options-button">Zmień zdjęcie <font-awesome-icon icon="pen-to-square"/></button>
       </div>
-      <span class="profile__options-header">Waluta:</span>
+
       <div class="profile__options-item">
+        <span class="profile__options-header">Waluta:</span>
         <span class="profile__options-money-value">{{user?.money}}</span>
-        <button @click="resetMoney" class="profile__options-button">Zresetuj walutę <font-awesome-icon icon="rotate"/></button>
-        </div>
-      <span class="profile__options-header">Wygrane:</span>
-      <div class="profile__options-item">
+        <span class="profile__options-header">Wygrane:</span>
         <span class="profile__options-money-value">{{user?.wins}}</span>
-        <button @click="resetWins" class="profile__options-button">Zresetuj wygrane <font-awesome-icon icon="rotate"/></button>
-      </div>
+        <button @click="resetStats" class="profile__options-button">Zresetuj statystyki <font-awesome-icon icon="rotate"/></button>
+        </div>
     </div>
 
     <div class="profile__form login-panel__form">

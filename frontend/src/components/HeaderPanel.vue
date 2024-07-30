@@ -1,9 +1,10 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { fetchUser } from '@/utils/utils.js'
 
 const user = ref('')
-onMounted(() => {
-  user.value = JSON.parse(localStorage.getItem('user'))
+onMounted(async () => {
+  user.value = await fetchUser()
 });
 </script>
 <template>

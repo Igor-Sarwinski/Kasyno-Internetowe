@@ -609,9 +609,10 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  padding: 5px;
+  padding: 10px;
   background: #475161;
   width: 100%;
+  margin-bottom: 40px;
 }
 .profile__options-avatar {
   align-self: center;

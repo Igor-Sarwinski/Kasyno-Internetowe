@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue'
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 
@@ -24,12 +24,13 @@ const registerAction = async () => {
     address: address.value,
     phone: phone.value,
     password: password.value,
-    money: 0,
+    money: 1000,
+    wins: 0,
   };
 
   try {
-    const response = await axios.post('http://localhost:3000/api/users', payload);
-    console.log(response);
+    const response = await axios.post('/api/users', payload);
+    localStorage.setItem('token', response.data._id)
     router.push('/');
   } catch (error) {
     isSubmitting.value = false;
@@ -41,6 +42,12 @@ const registerAction = async () => {
     }
   }
 };
+
+onMounted(() => {
+  if (localStorage.getItem('token')) {
+    router.push('/dashboard');
+  }
+});
 </script>
 
 <template>
