@@ -18,4 +18,6 @@ route.post('/api/login', controller.login);
 route.post('/api/logout', controller.logout);
 route.get('/api/user/:id', controller.getUserById);
 route.get('/api/top-users', controller.getTopUsers);
+route.put('/api/users/:id/money', controller.updateMoney);
+route.put('/api/users/:id/wins', controller.updateWins);
 module.exports=route

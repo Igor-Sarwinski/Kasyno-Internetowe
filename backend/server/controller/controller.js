@@ -17,6 +17,7 @@ exports.create = (req, res) => {
         phone: req.body.phone,
         password: req.body.password,
         money: req.body.money,
+        wins: req.body.wins,
     });
 
     // zapisz użytkownika w bazie danych
@@ -156,3 +157,46 @@ exports.getTopUsers = (req, res) => {
     });
 };
 
+//zmiana wartosci pola money
+exports.updateMoney = (req, res) => {
+  if (req.body.money == null) {
+    return res.status(400).send({ message: "Kwota do aktualizacji nie może być pusta" });
+  }
+
+  const id = req.params.id;
+  const newMoneyValue = req.body.money;
+
+  Userdb.findByIdAndUpdate(id, { money: newMoneyValue }, { useFindAndModify: false, new: true })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({ message: "Nie można zaktualizować użytkownika z id " + id + ", być może użytkownik nie został znaleziony" });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch(err => {
+      res.status(500).send({ message: "Błąd podczas aktualizacji wartości pieniędzy użytkownika" });
+    });
+};
+
+//zmiana wartosci pola wins
+exports.updateWins = (req, res) => {
+  if (req.body.wins == null)  {
+    return res.status(400).send({ message: "Kwota do aktualizacji nie może być pusta" });
+  }
+
+  const id = req.params.id;
+  const newWinsValue = req.body.wins;
+
+  Userdb.findByIdAndUpdate(id, { wins: newWinsValue }, { useFindAndModify: false, new: true })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({ message: "Nie można zaktualizować użytkownika z id " + id + ", być może użytkownik nie został znaleziony" });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch(err => {
+      res.status(500).send({ message: "Błąd podczas aktualizacji wartości pieniędzy użytkownika" });
+    });
+};
