@@ -1,49 +1,49 @@
 @import 'variables';
-.form{
+.form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 70%;
-  font-size:$font-form-size;
-  &-field{
+  font-size: $font-form-size;
+  &-field {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    &-input{
+    &-input {
       width: 75%;
       background-color: $background;
       border-radius: 15px;
       padding: 4px;
-      color:white;
+      color: white;
       border: 1px solid black;
       margin: 10px 0;
       text-align: center;
-      &-number{
+      &-number {
         -webkit-appearance: none;
         -moz-appearance: textfield;
         appearance: none;
       }
     }
-    &-label{
+    &-label {
       align-content: center;
     }
-    &-text{
-      color:$font-color;
-      &-link{
-     text-decoration: none;
-        margin-left:5px;
-      color:cyan;
+    &-text {
+      color: $font-color;
+      &-link {
+        text-decoration: none;
+        margin-left: 5px;
+        color: cyan;
       }
     }
-    &-submit{
+    &-submit {
       width: 100%;
 
-      &-button{
+      &-button {
         width: 100%;
-        font-size:20px;
-        margin:15px 0;
+        font-size: 20px;
+        margin: 15px 0;
         border-radius: 15px;
-        border:none;
+        border: none;
         padding: 15px 0;
         background-color: $red-accents;
         transition: ease-in 0.3s;
@@ -53,11 +53,8 @@
       &-button:hover {
         background-color: $background;
         color: $red-accents;
-        border:1px solid $red-accents;
+        border: 1px solid $red-accents;
       }
     }
   }
-
-
-
 }

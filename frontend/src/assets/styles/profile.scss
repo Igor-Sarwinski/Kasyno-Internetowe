@@ -16,7 +16,7 @@
 
     &-header {
       font-size: 2em;
-      margin:10px 0;
+      margin: 10px 0;
     }
 
     &-button {
@@ -50,20 +50,17 @@
       margin-bottom: 40px;
     }
 
-      &-avatar {
-        align-self: center;
-        background-color: $red-accents;
-        padding: 5px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px #5d5d5d;
-        width: fit-content;
-        &-image {
-          height: 100px;
-        }
+    &-avatar {
+      align-self: center;
+      background-color: $red-accents;
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #5d5d5d;
+      width: fit-content;
+      &-image {
+        height: 100px;
       }
-
-
-
+    }
   }
 
   &__form {
@@ -81,6 +78,7 @@
     &-header {
       font-size: 2em;
       padding: 15px 0;
+      align-self: center;
     }
   }
 }

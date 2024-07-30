@@ -1,5 +1,5 @@
-@import "variables";
-.menu{
+@import 'variables';
+.menu {
   grid-row: 1 / span 2;
   min-width: 250px;
   max-width: 250px;
@@ -7,8 +7,8 @@
   height: 100vh;
   position: fixed;
   background-color: $background-light;
-  box-shadow: 0 0 3px #444444 ;
-  color:white;
+  box-shadow: 0 0 3px #444444;
+  color: white;
   &__logo {
     display: flex;
     justify-content: center;
@@ -20,77 +20,74 @@
       max-height: 100%;
     }
   }
-  &__profile{
+  &__profile {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
     padding: 0 10px;
-    &-avatar{
+    &-avatar {
       flex: 0 0 50%;
       position: relative;
       width: 100%;
       height: 100%;
-      &-background{
+      &-background {
         position: absolute;
         top: 10%;
         left: 10%;
         width: 80%;
         height: 80%;
         z-index: 1;
-        background-color:$red-accents;
+        background-color: $red-accents;
         border-radius: 8px;
         box-shadow: 0 0 10px #5d5d5d;
       }
-      &-image{
+      &-image {
         position: relative;
         width: 100%;
-        padding:15px;
+        padding: 15px;
         object-fit: cover;
         z-index: 2;
       }
-
     }
-  &-name{
-    align-content: center;
-    flex: 0 0 50%;
-    font-size: 1.3rem;
-  }
-    &-money{
-      margin:15px 0;
+    &-name {
+      align-content: center;
+      flex: 0 0 50%;
+      font-size: 1.3rem;
+    }
+    &-money {
+      margin: 15px 0;
       align-content: center;
       flex: 0 0 35%;
     }
-    &-value{
-      margin:15px 0;
+    &-value {
+      margin: 15px 0;
       flex: 0 0 65%;
       color: $red-accents;
       text-shadow: 1px 1px black;
     }
-
-
   }
-  &__separator{
+  &__separator {
     height: 1px;
     width: 100%;
     background-color: $separator;
     opacity: 10%;
     margin: 15px 0;
   }
-  &__nav{
-    margin:30px 0;
-    &-item{
-      padding:15px 0;
+  &__nav {
+    margin: 30px 0;
+    &-item {
+      padding: 15px 0;
       display: flex;
       align-items: center;
-      position:relative;
-      color:white;
+      position: relative;
+      color: white;
       transition: background-color 0.5s ease-in-out;
-      &-active{
+      &-active {
         background-color: $background-dark;
-        color:$red-accents;
+        color: $red-accents;
         margin-left: 1px;
-        &::before{
+        &::before {
           transition: height 0.3s ease-in;
           height: 100% !important;
         }
@@ -105,39 +102,39 @@
         height: 0;
         transition: height 0.3s ease-in;
       }
-      &:hover, &:hover > &-link{
-
+      &:hover,
+      &:hover > &-link {
         background-color: $background-dark;
-        color:$red-accents;
+        color: $red-accents;
         margin-left: 1px;
-        &::before{
-          height:100%;
+        &::before {
+          height: 100%;
         }
       }
-      &-icon{
+      &-icon {
         flex: 0 0 30%;
-        padding-left:25px;
+        padding-left: 25px;
       }
-      &-link{
-        color:white;
+      &-link {
+        color: white;
         flex: 1;
         text-decoration: none;
       }
     }
   }
-  &__logout{
+  &__logout {
     display: flex;
     justify-content: center;
     align-items: center;
-    &-link{
+    &-link {
       text-decoration: none;
-      color:white;
-      transition: font-size 0.5s ease-in, padding 0.5s ease-in;
-      &:hover{
+      color: white;
+      transition:
+        font-size 0.5s ease-in,
+        padding 0.5s ease-in;
+      &:hover {
         font-size: 1.5rem;
         padding: 25px 0;
-
-
       }
     }
   }

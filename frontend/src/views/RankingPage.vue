@@ -1,44 +1,34 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import axios from 'axios'
 import PopupUser from '@/components/PopupUser.vue'
-
-onMounted(() =>{getUsers()})
+import { getTopUsers } from '@/utils/utils.js'
 const users = ref([])
 
-const getUsers = async () => {
-  await axios.get('/api/top-users')
-    .then(response => {
-      users.value = response.data
-    })
-    .catch(error => {
-      console.log(error)
-    });
-}
-const selectedUser = ref(null);
-const showPopup = ref(false);
-const button = ref(false);
+onMounted(async () => {
+  users.value = await getTopUsers()
+})
+
+const selectedUser = ref(null)
+const showPopup = ref(false)
+const button = ref(false)
 const openPopup = (user) => {
-  selectedUser.value = user;
-  showPopup.value = true;
-};
+  selectedUser.value = user
+  showPopup.value = true
+}
 
 const closePopup = () => {
-  showPopup.value = false;
-  selectedUser.value = null;
-};
-const showButton = () =>{
+  showPopup.value = false
+  selectedUser.value = null
+}
+const showButton = () => {
   button.value = true
 }
-const hideButton = () =>{
+const hideButton = () => {
   button.value = false
 }
-
-
 </script>
 
 <template>
-
   <div class="ranking">
     <table class="ranking__table">
       <tr class="ranking__table-headers">
@@ -49,7 +39,14 @@ const hideButton = () =>{
         <th v-if="button" class="ranking__table-header">Akcje</th>
       </tr>
 
-      <tr @mouseleave="hideButton" @mouseenter="showButton" @click="openPopup(user)" v-for="(user,index) in users" :key="user._id" class="ranking__table-users">
+      <tr
+        @mouseleave="hideButton"
+        @mouseenter="showButton"
+        @click="openPopup(user)"
+        v-for="(user, index) in users"
+        :key="user._id"
+        class="ranking__table-users"
+      >
         <td class="ranking__table-user">{{ index + 1 }}</td>
         <td class="ranking__table-user">{{ user?.name }} {{ user?.surname }}</td>
         <td class="ranking__table-user">{{ user?.money }}</td>
@@ -60,7 +57,3 @@ const hideButton = () =>{
     </table>
   </div>
 </template>
-
-
-
-

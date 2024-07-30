@@ -30,7 +30,6 @@
         font-weight: 700;
         text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
         margin-bottom: 1rem;
-
       }
       &-button {
         background-color: $red-accents;
@@ -50,9 +49,9 @@
       transform: scale(1.15);
       filter: blur(2px);
     }
-    &:hover, &:hover &-info-button{
+    &:hover,
+    &:hover &-info-button {
       box-shadow: 0 0 15px $red-accents;
     }
   }
 }
-
