@@ -86,6 +86,15 @@
       position:relative;
       color:white;
       transition: background-color 0.5s ease-in-out;
+      &-active{
+        background-color: $background-dark;
+        color:$red-accents;
+        margin-left: 1px;
+        &::before{
+          transition: height 0.3s ease-in;
+          height: 100% !important;
+        }
+      }
       &::before {
         content: '';
         background-color: $red-accents;
@@ -113,9 +122,7 @@
         color:white;
         flex: 1;
         text-decoration: none;
-
       }
-
     }
   }
   &__logout{

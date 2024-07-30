@@ -1,0 +1,2 @@
+1. Dodac pinia i przy jej pomocy przechowywac usera
+2.

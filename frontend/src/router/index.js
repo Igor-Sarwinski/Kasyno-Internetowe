@@ -13,14 +13,14 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', component: LoginPage },
-    { path: '/register', component: RegisterPage },
-    { path: '/dashboard', component: DashboardPage},
-    { path: '/profile', component: ProfilePage },
-    { path: '/roulette', component: RoulettePage },
-    { path: '/blackjack', component: BlackjackPage },
-    { path: '/slots', component: SlotsPage },
-    { path: '/ranking', component: RankingPage },
-    { path: '/info', component: InfoPage },
+    { path: '/register', component: () => RegisterPage },
+    { path: '/dashboard', component: () =>DashboardPage},
+    { path: '/profile', component: () =>ProfilePage },
+    { path: '/roulette', component: () =>RoulettePage },
+    { path: '/blackjack', component: () =>BlackjackPage },
+    { path: '/slots', component: () =>SlotsPage },
+    { path: '/ranking', component:() => RankingPage },
+    { path: '/info', component: () =>InfoPage },
   ]
 })
 

@@ -7,6 +7,7 @@
 @import '@fontsource/source-sans-pro/index.css';
 @import '@fontsource/source-sans-pro/index.css';
 @import '@fontsource/source-sans-pro/index.css';
+@import '@fontsource/source-sans-pro/index.css';
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0");
 .login-container {
   display: flex;
@@ -210,6 +211,15 @@ body {
   position: relative;
   color: white;
   transition: background-color 0.5s ease-in-out;
+}
+.menu__nav-item-active {
+  background-color: #191D24;
+  color: #EB3224;
+  margin-left: 1px;
+}
+.menu__nav-item-active::before {
+  transition: height 0.3s ease-in;
+  height: 100% !important;
 }
 .menu__nav-item::before {
   content: "";
@@ -556,6 +566,78 @@ body {
   font-weight: bold;
   border-bottom: 1px solid #2A313B;
   border-bottom-left-radius: 20px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.profile__options {
+  display: flex;
+  background: #2A313B;
+  flex-direction: column;
+  border-radius: 45px;
+  flex: 1;
+  padding: 25px;
+  align-items: center;
+}
+.profile__options-header {
+  font-size: 2em;
+  margin: 10px 0;
+}
+.profile__options-button {
+  width: 50%;
+  font-size: 20px;
+  margin: 10px 0;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 0;
+  background-color: #EB3224;
+  transition: ease-in 0.3s;
+  justify-content: center;
+  align-items: center;
+}
+.profile__options-button:hover {
+  background-color: #232931;
+  color: #EB3224;
+  border: 1px solid #EB3224;
+}
+.profile__options-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding: 5px;
+  background: #475161;
+  width: 100%;
+}
+.profile__options-avatar {
+  align-self: center;
+  background-color: #EB3224;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #5d5d5d;
+  width: fit-content;
+}
+.profile__options-avatar-image {
+  height: 100px;
+}
+.profile__form {
+  border-radius: 45px;
+  background: #2A313B;
+  justify-content: center;
+  align-items: center;
+}
+.profile__form-form {
+  border-radius: 30px;
+  padding: 15px;
+  background: #475161;
+}
+.profile__form-header {
+  font-size: 2em;
+  padding: 15px 0;
 }
 
 * {

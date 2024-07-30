@@ -1,8 +1,10 @@
 <script setup>
 import {onMounted, ref } from 'vue'
 import { useLogout } from '@/utils/utils.js'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 const user = ref('')
-onMounted(() => {
+onMounted(async () => {
   user.value = JSON.parse(localStorage.getItem('user'))
 });
 const logoutAction = useLogout();
@@ -42,7 +44,7 @@ const menuItems = ref([
     </div>
     <div class="menu__separator"/>
     <ul class="menu__nav">
-      <li v-for="item in menuItems" :key="item.id" class="menu__nav-item">
+      <li v-for="item in menuItems" :key="item.id" class="menu__nav-item" :class="{ 'menu__nav-item-active': route.path === item.link }">
         <span class="material-symbols-outlined menu__nav-item-icon">{{ item.icon }}</span>
         <router-link :to="item.link" class="menu__nav-item-link"><p>{{ item.label }}</p></router-link>
       </li>
