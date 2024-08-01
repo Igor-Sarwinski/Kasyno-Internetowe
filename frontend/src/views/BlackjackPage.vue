@@ -1,10 +1,21 @@
+<script setup>
+import GameHub from '@/components/GameHub.vue'
+import BlackjackLegend from '@/components/BlackjackLegend.vue'
+</script>
+
 <template>
-    <div>
-      <h1>Blackjack</h1>
-    </div>
+  <div class="blackjack">
+  <GameHub>
+    <template #game="{ coins }">
+      <p>{{coins}}</p>
+    </template>
+    <template #legend="{coins}">
+      <BlackjackLegend :coins="coins" />
+    </template>
+  </GameHub>
+  </div>
 </template>
 
-<script setup>
-</script>
+
 
 
