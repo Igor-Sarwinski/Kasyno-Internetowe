@@ -61,5 +61,25 @@
         }
       }
     }
+    @mixin colors{
+      width: 25px;
+      height: 25px;
+      margin-left:20px;
+      border-radius: 100%;
+      border: 1px solid black;
+    }
+    &-red{
+      @include colors;
+      background-color: red;
+    }
+    &-black{
+      @include colors;
+      background-color: black;
+    }
+    &-green{
+      @include colors;
+      background-color: green;
+    }
   }
 }
+

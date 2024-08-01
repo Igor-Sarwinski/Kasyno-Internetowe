@@ -14,14 +14,14 @@ defineProps({
         <th class="roulette__legend-table-header">Możliwa wygrana</th>
       </tr>
       <tr class="roulette__legend-table-row">
-        <td class="roulette__legend-table-cell"><span class="roulette__legend-table-red"></span></td>
+        <td class="roulette__legend-table-cell"><div class="roulette__legend-table-red"></div></td>
         <td class="roulette__legend-table-cell">48,5%</td>
         <td class="roulette__legend-table-cell">X 2</td>
         <td class="roulette__legend-table-cell">{{ 2 * coins }}</td>
       </tr>
       <tr class="roulette__legend-table-row">
         <td class="roulette__legend-table-cell">
-          <span class="roulette__legend-table-black"></span>
+          <div class="roulette__legend-table-black"></div>
         </td>
         <td class="roulette__legend-table-cell">48,5%</td>
         <td class="roulette__legend-table-cell">X 2</td>
@@ -29,7 +29,7 @@ defineProps({
       </tr>
       <tr class="roulette__legend-table-row">
         <td class="roulette__legend-table-cell">
-          <span class="roulette__legend-table-green"></span>
+          <div class="roulette__legend-table-green"></div>
         </td>
         <td class="roulette__legend-table-cell">3%</td>
         <td class="roulette__legend-table-cell">X 36</td>
