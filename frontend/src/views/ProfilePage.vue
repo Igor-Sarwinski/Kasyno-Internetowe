@@ -74,7 +74,7 @@ const editPhoto = () => {
 
       <div class="profile__options-item">
         <span class="profile__options-header">Waluta:</span>
-        <span class="profile__options-money-value">{{ user?.money }}</span>
+        <span class="profile__options-monemy-value">{{ user?.money }}</span>
         <span class="profile__options-header">Wygrane:</span>
         <span class="profile__options-money-value">{{ user?.wins }}</span>
         <button @click="resetStats" class="profile__options-button">

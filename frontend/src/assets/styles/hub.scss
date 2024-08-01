@@ -1,0 +1,87 @@
+@import 'variables';
+.hub {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 15px;
+  &__item {
+    background: $background;
+    padding: 25px;
+    border-radius: 25px;
+  }
+  &__game {
+    width: 65%;
+    height: 100%;
+  }
+  &__info {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    &-coins {
+      height: 40%;
+    }
+    &-legend {
+      height: 60%;
+    }
+  }
+  &__coins-picker {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    &-item {
+      &-img {
+        height: 80px;
+        filter: drop-shadow(0 0 10px black);
+        transition: ease-in 0.3s;
+        &:hover {
+          filter: drop-shadow(0 0 10px $red-accents) brightness(1.5);
+        }
+        &:active {
+          filter: drop-shadow(0 0 10px $red-accents) brightness(0.3);
+        }
+      }
+    }
+    &-button {
+      width: 150px;
+      height: 50px;
+      font-size: 1em;
+      border: none;
+      border-radius: 15px;
+      background-color: $red-accents;
+      transition: ease-in 0.3s;
+      box-shadow: 0 0 10px black;
+      &:hover {
+        background-color: $background;
+        color: $red-accents;
+        border: 1px solid $red-accents;
+      }
+      &:active {
+        background-color: $red-accents;
+        color: black;
+        box-shadow: 0 0 10px $red-accents;
+      }
+    }
+    &-text {
+      font-size: 1.3em;
+    }
+    &-value {
+      font-size: 1.3em;
+      transition: color 0.5s;
+    }
+    &-coins {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      &-img {
+        height: 20px;
+        vertical-align: middle;
+      }
+      &-amount {
+      }
+    }
+  }
+}

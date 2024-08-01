@@ -1,9 +1,13 @@
 <script setup>
-
+import GameHub from '@/components/GameHub.vue'
 </script>
 <template>
-    <div>
-      <h1>Ruletka</h1>
+    <div class="roulette">
+      <GameHub>
+        <template #game="{ coins }">
+        <p>{{coins}}</p>
+        </template>
+      </GameHub>
     </div>
 </template>
 
