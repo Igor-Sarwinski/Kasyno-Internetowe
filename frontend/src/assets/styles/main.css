@@ -9,6 +9,7 @@
 @import '@fontsource/source-sans-pro/index.css';
 @import '@fontsource/source-sans-pro/index.css';
 @import '@fontsource/source-sans-pro/index.css';
+@import '@fontsource/source-sans-pro/index.css';
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0");
 .login-container {
   display: flex;
@@ -670,6 +671,12 @@ body {
 }
 .hub__info-legend {
   height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hub__info-legend-title {
+  font-size: 1.5em;
 }
 .hub__coins-picker {
   display: flex;
@@ -726,6 +733,57 @@ body {
   height: 20px;
   vertical-align: middle;
 }
+.roulette__legend {
+  width: 100%;
+  height: 100%;
+}
+.roulette__legend-text {
+  padding: 15px;
+  font-size: 0.9rem;
+  display: ruby-text;
+  border-radius: 25px;
+  background: #2a313b;
+  border: 1px solid #191d24;
+}
+.roulette__legend-table {
+  width: 100%;
+  height: 50%;
+  margin: 15px 0;
+  border-radius: 25px;
+  text-align: center;
+  border-spacing: 0px;
+}
+.roulette__legend-table-headers {
+  background: #191d24;
+}
+.roulette__legend-table-headers th {
+  padding: 3px;
+}
+.roulette__legend-table-headers th:first-child {
+  border-top-left-radius: 15px;
+}
+.roulette__legend-table-headers th:last-child {
+  border-top-right-radius: 15px;
+}
+.roulette__legend-table-cell {
+  border-top: 1px solid #475161;
+}
+.roulette__legend-table-cell:first-child {
+  border-left: 1px solid #475161;
+}
+.roulette__legend-table-cell:last-child {
+  border-right: 1px solid #475161;
+}
+.roulette__legend-table-row:last-child td {
+  border-bottom: 1px solid #475161;
+}
+.roulette__legend-table-row:last-child td:first-child {
+  border-bottom-left-radius: 25px;
+}
+.roulette__legend-table-row:last-child td:last-child {
+  border-bottom-right-radius: 25px;
+}
+
 * {
   padding: 0;
   margin: 0;

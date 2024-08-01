@@ -17,7 +17,8 @@ function updateCoins(newCoins) {
         <CoinsPicker @update-coins="updateCoins" />
       </div>
       <div class="hub__item hub__info-legend">
-        <slot name="legend" />
+        <span class="hub__info-legend-title">Legenda</span>
+        <slot :coins="coins" name="legend" />
       </div>
     </div>
   </div>

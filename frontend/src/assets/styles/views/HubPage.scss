@@ -1,4 +1,4 @@
-@import 'variables';
+@import '../variables';
 .hub {
   display: flex;
   flex-direction: row;
@@ -23,6 +23,13 @@
     }
     &-legend {
       height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-title{
+        font-size: 1.5em;
+
+      }
     }
   }
   &__coins-picker {

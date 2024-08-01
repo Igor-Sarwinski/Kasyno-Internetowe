@@ -1,0 +1,10 @@
+@import '@fontsource/source-sans-pro/index.css';
+.roulette__legend {
+  width: 100%;
+  height: 100%;
+}
+.roulette__legend-form {
+  background: #191d24;
+}
+
+/*# sourceMappingURL=RouletteLegend.css.map */
