@@ -1,0 +1,137 @@
+@import '../variables';
+.roulette {
+  &__game {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    &-info {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      &-winner{
+        transition: color ease-in 0.5s;
+        animation-name: rainbow;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+
+        &-red{
+          padding-left: 10px;
+          color: red;
+          text-shadow: 0 0 15px red;
+        }
+        &-black{
+          padding-left: 10px;
+          color: black;
+          text-shadow: 0 0 15px black;
+        }
+        &-green{
+          padding-left: 10px;
+          color: green;
+          text-shadow: 0 0 15px green;
+        }
+      }
+      @keyframes rainbow {
+        0% { color: red; text-shadow: 0 0 10px red; }
+        8.33% { color: orange; text-shadow: 0 0 10px orange; }
+        16.66% { color: yellow; text-shadow: 0 0 10px yellow; }
+        25% { color: green; text-shadow: 0 0 10px green; }
+        33.33% { color: blue; text-shadow: 0 0 10px blue; }
+        41.66% { color: indigo; text-shadow: 0 0 10px indigo; }
+        50% { color: violet; text-shadow: 0 0 10px violet; }
+        58.33% { color: pink; text-shadow: 0 0 10px pink; }
+        66.66% { color: cyan; text-shadow: 0 0 10px cyan; }
+        75% { color: lime; text-shadow: 0 0 10px lime; }
+        83.33% { color: magenta; text-shadow: 0 0 10px magenta; }
+        91.66% { color: teal; text-shadow: 0 0 10px teal; }
+        100% { color: red; text-shadow: 0 0 10px red; }
+      }
+      &-item{
+        text-align: center;
+        font-size: 1.6rem;
+        width: 100%;
+        height: 100%;
+        padding:5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &-item {
+      border-radius: 25px;
+      padding: 15px;
+      background: $background-dark;
+    }
+    &-controlls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+
+      &-input {
+        &-label {
+          margin-top: 10px;
+          font-size: 18px;
+          //color: red;
+          align-items: center;
+          justify-content: space-between;
+          display: flex;
+          flex-direction: row;
+          width: 90%;
+        }
+        display: none;
+        @mixin custom-input {
+          width: 35px;
+          height: 35px;
+          position: relative;
+          border-radius: 100%;
+        }
+
+        &-red {
+          @include custom-input;
+          background-color: red;
+          &--bigger {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 10px red;
+          }
+        }
+
+        &-black {
+          @include custom-input;
+          background-color: black;
+          &--bigger {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 10px black;
+          }
+        }
+
+        &-green {
+          @include custom-input;
+          background-color: green;
+          &--bigger {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 10px green;
+          }
+        }
+      }
+    }
+  }
+}
+.wheel-container {
+  margin: 15px 55px;
+}
+.wheel-container::after {
+  content: '';
+  height: 210px;
+  width: 5px;
+  position: absolute;
+  border: 3px solid white;
+  top: 0;
+  left: calc(50% - 2px);
+  border-radius: 50%;
+  box-shadow: 0 0 5px white;
+  z-index: 1;
+}
