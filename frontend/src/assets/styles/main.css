@@ -1067,6 +1067,7 @@ body {
   height: 35px;
   position: relative;
   border-radius: 100%;
+  display: inline;
   background-color: red;
 }
 .roulette__game-controlls-input-red--bigger {
@@ -1079,6 +1080,7 @@ body {
   height: 35px;
   position: relative;
   border-radius: 100%;
+  display: inline;
   background-color: black;
 }
 .roulette__game-controlls-input-black--bigger {
@@ -1091,6 +1093,7 @@ body {
   height: 35px;
   position: relative;
   border-radius: 100%;
+  display: inline;
   background-color: green;
 }
 .roulette__game-controlls-input-green--bigger {

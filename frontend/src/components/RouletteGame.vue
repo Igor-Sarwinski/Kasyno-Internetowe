@@ -1,21 +1,22 @@
 <script setup>
 import { Roulette } from 'vue3-roulette'
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import { fetchUser, setUserMoney } from '@/utils/utils.js'
 const wheel = ref(null)
-const greenRoulette = '#68BB45'
-const blackRoulette = '#000'
-const redRoulette = '#EE2D2E'
+const colors = {
+  green: '#68BB45',
+  black: '#000',
+  red: '#EE2D2E'
+}
 const winner = ref('')
 const selectedColor = ref('')
 const isDisabled = ref(false)
-const isRed = ref(false)
-const isBlack = ref(false)
-const isGreen = ref(false)
+const color = ref('')
 const game = ref({
-  state: String,
-  money: Number
+  state: '',
+  money: 0
 })
+
 const prop = defineProps({
   coins: Number
 })
@@ -28,99 +29,72 @@ const rouletteBackground = ref(
   '<img src="/src/assets/img/roulette.png" alt="Roulette" class="roulette-icon" />'
 )
 const items = [
-  { id: 1, name: '0', htmlContent: '0', background: greenRoulette },
-  { id: 2, name: '32', htmlContent: '32', background: redRoulette },
-  { id: 3, name: '15', htmlContent: '15', background: blackRoulette },
-  { id: 4, name: '19', htmlContent: '19', background: redRoulette },
-  { id: 5, name: '4', htmlContent: '4', background: blackRoulette },
-  { id: 6, name: '21', htmlContent: '21', background: redRoulette },
-  { id: 7, name: '2', htmlContent: '2', background: blackRoulette },
-  { id: 8, name: '25', htmlContent: '25', background: redRoulette },
-  { id: 9, name: '17', htmlContent: '17', background: blackRoulette },
-  { id: 10, name: '34', htmlContent: '34', background: redRoulette },
-  { id: 11, name: '6', htmlContent: '6', background: blackRoulette },
-  { id: 12, name: '27', htmlContent: '27', background: redRoulette },
-  { id: 13, name: '13', htmlContent: '13', background: blackRoulette },
-  { id: 14, name: '36', htmlContent: '36', background: redRoulette },
-  { id: 15, name: '11', htmlContent: '11', background: blackRoulette },
-  { id: 16, name: '30', htmlContent: '30', background: redRoulette },
-  { id: 17, name: '8', htmlContent: '8', background: blackRoulette },
-  { id: 18, name: '23', htmlContent: '23', background: redRoulette },
-  { id: 19, name: '10', htmlContent: '10', background: blackRoulette },
-  { id: 20, name: '5', htmlContent: '5', background: redRoulette },
-  { id: 21, name: '24', htmlContent: '24', background: blackRoulette },
-  { id: 22, name: '16', htmlContent: '16', background: redRoulette },
-  { id: 23, name: '33', htmlContent: '33', background: blackRoulette },
-  { id: 24, name: '1', htmlContent: '1', background: redRoulette },
-  { id: 25, name: '20', htmlContent: '20', background: blackRoulette },
-  { id: 26, name: '14', htmlContent: '14', background: redRoulette },
-  { id: 27, name: '31', htmlContent: '31', background: blackRoulette },
-  { id: 28, name: '9', htmlContent: '9', background: redRoulette },
-  { id: 29, name: '22', htmlContent: '22', background: blackRoulette },
-  { id: 30, name: '18', htmlContent: '18', background: redRoulette },
-  { id: 31, name: '29', htmlContent: '29', background: blackRoulette },
-  { id: 32, name: '7', htmlContent: '7', background: redRoulette },
-  { id: 33, name: '28', htmlContent: '28', background: blackRoulette },
-  { id: 34, name: '12', htmlContent: '12', background: redRoulette },
-  { id: 35, name: '35', htmlContent: '35', background: blackRoulette },
-  { id: 36, name: '3', htmlContent: '3', background: redRoulette },
-  { id: 37, name: '26', htmlContent: '26', background: blackRoulette }
+  { id: 1, name: '0', htmlContent: '0', background: colors.green},
+  { id: 2, name: '32', htmlContent: '32', background: colors.red},
+  { id: 3, name: '15', htmlContent: '15', background: colors.black },
+  { id: 4, name: '19', htmlContent: '19', background: colors.red },
+  { id: 5, name: '4', htmlContent: '4', background: colors.black },
+  { id: 6, name: '21', htmlContent: '21', background: colors.red },
+  { id: 7, name: '2', htmlContent: '2', background: colors.black },
+  { id: 8, name: '25', htmlContent: '25', background: colors.red },
+  { id: 9, name: '17', htmlContent: '17', background: colors.black },
+  { id: 10, name: '34', htmlContent: '34', background: colors.red },
+  { id: 11, name: '6', htmlContent: '6', background: colors.black },
+  { id: 12, name: '27', htmlContent: '27', background: colors.red },
+  { id: 13, name: '13', htmlContent: '13', background: colors.black },
+  { id: 14, name: '36', htmlContent: '36', background: colors.red },
+  { id: 15, name: '11', htmlContent: '11', background: colors.black },
+  { id: 16, name: '30', htmlContent: '30', background: colors.red },
+  { id: 17, name: '8', htmlContent: '8', background: colors.black },
+  { id: 18, name: '23', htmlContent: '23', background: colors.red },
+  { id: 19, name: '10', htmlContent: '10', background: colors.black },
+  { id: 20, name: '5', htmlContent: '5', background: colors.red },
+  { id: 21, name: '24', htmlContent: '24', background: colors.black },
+  { id: 22, name: '16', htmlContent: '16', background: colors.red },
+  { id: 23, name: '33', htmlContent: '33', background: colors.black },
+  { id: 24, name: '1', htmlContent: '1', background: colors.red },
+  { id: 25, name: '20', htmlContent: '20', background: colors.black },
+  { id: 26, name: '14', htmlContent: '14', background: colors.red },
+  { id: 27, name: '31', htmlContent: '31', background: colors.black },
+  { id: 28, name: '9', htmlContent: '9', background: colors.red },
+  { id: 29, name: '22', htmlContent: '22', background: colors.black },
+  { id: 30, name: '18', htmlContent: '18', background: colors.red },
+  { id: 31, name: '29', htmlContent: '29', background: colors.black },
+  { id: 32, name: '7', htmlContent: '7', background: colors.red },
+  { id: 33, name: '28', htmlContent: '28', background: colors.black },
+  { id: 34, name: '12', htmlContent: '12', background: colors.red },
+  { id: 35, name: '35', htmlContent: '35', background: colors.black },
+  { id: 36, name: '3', htmlContent: '3', background: colors.red },
+  { id: 37, name: '26', htmlContent: '26', background: colors.black }
 ]
 
 function runWheel() {
-  wheel.value.launchWheel()
   isDisabled.value = true
+  wheel.value.launchWheel()
 }
-function startWheel() {
-  console.log('startWheel')
+const updateGameResult = async (color) => {
+  game.value.state = selectedColor.value === color ? 'plus' : 'minus'
+  game.value.money = prop.coins * (selectedColor.value === 'green' ? 36 : 1)
+  await setUserMoney(user.value.money + (game.value.state === 'plus' ? game.value.money : -prop.coins))
+  console.log(user.value.money)
+  user.value = await fetchUser();
+  console.log(user.value.money)
 }
-function endWheel(value) {
-  winner.value = value
 
-  if (winner.value.background === redRoulette) {
-    isRed.value = true
-    winner.value.kolor = 'czerwony'
-    if (selectedColor.value === 'red') {
-      game.value.state = 'plus'
-      game.value.money = prop.coins * 2
-      setUserMoney(user.value.money + game.value.money)
-    } else {
-      game.value.state = 'minus'
-      game.value.money = prop.coins
-      setUserMoney(user.value.money - game.value.money)
-    }
-  } else if (winner.value.background === blackRoulette) {
-    isBlack.value = true
-    winner.value.kolor = 'czarny'
-    if (selectedColor.value === 'black') {
-      game.value.state = 'plus'
-      game.value.money = prop.coins * 2
-      setUserMoney(user.value.money + game.value.money)
-    } else {
-      game.value.state = 'minus'
-      game.value.money = prop.coins
-      setUserMoney(user.value.money - game.value.money)
-    }
-  } else {
-    isGreen.value = true
-    winner.value.kolor = 'zielony'
-    if (selectedColor.value === 'green') {
-      game.value.state = 'plus'
-      game.value.money = prop.coins * 14
-      setUserMoney(user.value.money + game.value.money)
-    } else {
-      game.value.state = 'minus'
-      game.value.money = prop.coins
-      setUserMoney(user.value.money - game.value.money)
-    }
-  }
+function endWheel (value) {
+  winner.value = value
+  color.value =
+    winner.value?.background === colors.red
+      ? 'red'
+      : winner.value?.background === colors.black
+        ? 'black'
+        : 'green'
+  updateGameResult(color.value)
   setTimeout(() => {
-    wheel.value.reset()
-    winner.value.name = null
-    setTimeout(() => {
-      isDisabled.value = false
-    }, 5000)
-  }, 5000)
+    color.value = '';
+    winner.value = '';
+    isDisabled.value = false
+  }, 3000)
 }
 const disableButton = () => {
   return (
@@ -135,17 +109,14 @@ const disableButton = () => {
       <Roulette
         ref="wheel"
         :items="items"
-        @click="runWheel"
         base-display
-        base-size="300"
+        :base-size=300
         :size="400"
         base-background="#EEAA33"
         class="wheel"
         easing="ease"
-        result-variation="0"
-        :duration="5"
+        :duration="3"
         base-display-shadow
-        @wheel-start="startWheel"
         @wheel-end="endWheel"
       >
         <template #baseContent>
@@ -154,85 +125,64 @@ const disableButton = () => {
       </Roulette>
     </div>
     <div class="roulette__game-item roulette__game-controlls">
-      <label class="roulette__game-controlls-input-label" for="red">
+      <label
+        v-for="color in ['red', 'black', 'green']"
+        :key="color"
+        :class="'roulette__game-controlls-input-label'"
+      >
         <input
           class="roulette__game-controlls-input"
           type="radio"
-          name="color"
-          id="red"
-          value="red"
+          :name="color"
+          :id="color"
+          :value="color"
           v-model="selectedColor"
         />
-        <span class="roulette__game-controlls-input-red"></span>
-        Czerwony
+        <span :class="'roulette__game-controlls-input-' + color"></span>
+        {{ color === 'red' ? 'Czerwony' : color === 'black' ? 'Czarny' : 'Zielony' }}
       </label>
-
-      <label class="roulette__game-controlls-input-label" for="black">
-        <input
-          class="roulette__game-controlls-input"
-          type="radio"
-          name="black"
-          id="black"
-          value="black"
-          v-model="selectedColor"
-        />
-        <span class="roulette__game-controlls-input-black"></span>
-        Czarny</label
-      >
-
-      <label class="roulette__game-controlls-input-label" for="green">
-        <input
-          class="roulette__game-controlls-input"
-          type="radio"
-          name="green"
-          id="green"
-          value="green"
-          v-model="selectedColor"
-        />
-        <span class="roulette__game-controlls-input-green"></span>
-        Zielony</label
-      >
-
       <button
         class="roulette__game-controlls-button hub__button"
-        @click="runWheel(selectedColor)"
+        @click="runWheel()"
         :disabled="disableButton()"
       >
         Losuj kołem <font-awesome-icon icon="spinner" />
       </button>
       <span v-if="selectedColor">Wybrano:</span>
       <span
-        v-if="selectedColor === 'green'"
-        class="roulette__game-controlls-input-green roulette__game-controlls-input-green--bigger"
-      />
-      <span
-        v-if="selectedColor === 'red'"
-        class="roulette__game-controlls-input-red roulette__game-controlls-input-red--bigger"
-      />
-      <span
-        v-if="selectedColor === 'black'"
-        class="roulette__game-controlls-input-black roulette__game-controlls-input-black--bigger"
-      />
+        :class="[
+          'roulette__game-controlls-input-' + selectedColor,
+          'roulette__game-controlls-input-' + selectedColor + '--bigger'
+        ]"
+      ></span>
     </div>
-    <div v-if="winner.name" class="roulette__game-item roulette__game-info">
-      <span class="roulette__game-info-item roulette__game-info-winner" v-if="winner.name"
-        ><p>Wylosowano: {{ winner.name }} -></p>
+    <div v-if="winner?.name" class="roulette__game-item roulette__game-info">
+      <span class="roulette__game-info-item roulette__game-info-winner">
+        <p>Wylosowano: {{ winner?.name }} -></p>
         <span
-          :class="{
-            'roulette__game-info-winner-red': isRed,
-            'roulette__game-info-winner-black': isBlack,
-            'roulette__game-info-winner-green': isGreen
-          }"
+          :class="
+            'roulette__game-info-winner-' +
+            (winner?.background === colors.red
+              ? 'red'
+              : winner?.background === colors.black
+                ? 'black'
+                : 'green')
+          "
         >
-          {{ winner.kolor }}!
+          {{
+            winner?.background === colors.red
+              ? 'czerwony'
+              : winner?.background === colors.black
+                ? 'czarny'
+                : 'zielony'
+          }}!
         </span>
       </span>
-      <span class="roulette__game-info-item roulette__game-info-user"
-        ><p>Jesteś na </p><span :class="{
-            'roulette__game-info-winner-red': game.state === 'minus',
-            'roulette__game-info-winner-green': game.state === 'plus'
-          }">{{ game.state }} {{ game.money }}</span>
-
+      <span class="roulette__game-info-item roulette__game-info-user">
+        <p>Jesteś na</p>
+        <span :class="'roulette__game-info-winner-' + (game.state === 'minus' ? 'red' : 'green')"
+          >{{ game.state }} {{ game.state === 'plus' ? game.money : coins }}</span
+        >
       </span>
     </div>
   </div>
