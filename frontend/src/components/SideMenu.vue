@@ -6,6 +6,7 @@ const user = ref('')
 onMounted(async () => {
   user.value = await fetchUser()
 })
+
 const logoutAction = useLogout()
 
 const menuItems = ref([
