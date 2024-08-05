@@ -1,0 +1,89 @@
+@import '../../variables';
+@import '../Roulette/RoulettePage';
+.blackjack{
+  &__game {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: row;
+
+    &-item {
+      border-radius: 25px;
+      padding: 15px;
+      background: $background-dark;
+    }
+    &-cards {
+      height: 465px;
+      width: 73%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      overflow: scroll;
+      &-separator{
+        position: relative;
+        width: 100%;
+        background: black;
+        height: 1px;
+        margin:15px 0;
+      }
+      &-player{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 45%;
+      }
+      &-header{
+        text-align: center;
+        width: 100%;
+      }
+    }
+    &-controlls{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap:25px;
+      &-info{
+        font-size:1.15rem;
+        &-red{
+          color:red;
+        }
+      }
+    }
+    &-info{
+      width: 100%;
+      height: 80px;
+      display: flex;
+      &-winner{
+        transition: color ease-in 0.5s;
+        animation-name: rainbow;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        &-red {
+          padding-left: 10px;
+          color: red;
+          text-shadow: 0 0 15px red;
+        }
+        &-green {
+          padding-left: 10px;
+          color: green;
+          text-shadow: 0 0 15px green;
+        }
+      }
+      &-item {
+        text-align: center;
+        font-size: 1.6rem;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -48,7 +48,7 @@ export const addUserMoney = async (value) => {
   const user = await fetchUser()
   try {
     await setUserMoney(user.money + value)
-    console.log(user.money + value)
+    await setUserWins(user.wins + 1)
   } catch (err) {
     console.log(err)
   }
@@ -57,7 +57,6 @@ export const removeUserMoney = async (value) => {
   const user = await fetchUser()
   try {
     await setUserMoney(user.money - value)
-    console.log(user.money - value)
   } catch (err) {
     console.log(err)
   }

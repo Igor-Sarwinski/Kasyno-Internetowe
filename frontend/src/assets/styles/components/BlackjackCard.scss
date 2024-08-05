@@ -1,0 +1,27 @@
+@import '../variables';
+.card{
+  padding:15px;
+  background:$background-light;
+  border:1px solid rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px black;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 130px;
+  width: 100px;
+  margin:0 10px;
+  justify-content: space-between;
+  font-size:1.2rem;
+  border-radius: 15px;
+  &__name{
+    &-reversed{
+      margin-left:auto;
+      transform: rotateX(180deg) rotateY(180deg);
+    }
+  }
+  &__symbol{
+    align-self: center;
+    height: 45px;
+    width: 60%;
+  }
+}
