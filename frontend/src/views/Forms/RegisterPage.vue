@@ -58,10 +58,10 @@ onMounted(() => {
       <div class="login-panel__image">
         <img
           class="login-panel__image-background"
-          src="../assets/img/login/background.webp"
+          src="../../assets/img/login/background.webp"
           alt=""
         />
-        <img class="login-panel__image-logo" src="../assets/img/logo.png" alt="logo" />
+        <img class="login-panel__image-logo" src="../../assets/img/logo.png" alt="logo" />
       </div>
       <div class="login-panel__form">
         <h5 class="login-panel__form-header">PANEL REJESTRACJI</h5>

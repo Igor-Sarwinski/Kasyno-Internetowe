@@ -1,9 +1,9 @@
 @import '@fontsource/source-sans-pro/index.css';
-.blackjack__legend {
+.roulette__legend {
   width: 100%;
   height: 100%;
 }
-.blackjack__legend-text {
+.roulette__legend-text {
   padding: 15px;
   font-size: 0.9rem;
   display: ruby-text;
@@ -11,7 +11,7 @@
   background: #2a313b;
   border: 1px solid #191d24;
 }
-.blackjack__legend-table {
+.roulette__legend-table {
   width: 100%;
   height: 50%;
   margin: 15px 0;
@@ -19,37 +19,37 @@
   text-align: center;
   border-spacing: 0px;
 }
-.blackjack__legend-table-headers {
+.roulette__legend-table-headers {
   background: #191d24;
 }
-.blackjack__legend-table-headers th {
+.roulette__legend-table-headers th {
   padding: 3px;
 }
-.blackjack__legend-table-headers th:first-child {
+.roulette__legend-table-headers th:first-child {
   border-top-left-radius: 15px;
 }
-.blackjack__legend-table-headers th:last-child {
+.roulette__legend-table-headers th:last-child {
   border-top-right-radius: 15px;
 }
-.blackjack__legend-table-cell {
+.roulette__legend-table-cell {
   border-top: 1px solid #475161;
 }
-.blackjack__legend-table-cell:first-child {
+.roulette__legend-table-cell:first-child {
   border-left: 1px solid #475161;
 }
-.blackjack__legend-table-cell:last-child {
+.roulette__legend-table-cell:last-child {
   border-right: 1px solid #475161;
 }
-.blackjack__legend-table-row:last-child td {
+.roulette__legend-table-row:last-child td {
   border-bottom: 1px solid #475161;
 }
-.blackjack__legend-table-row:last-child td:first-child {
+.roulette__legend-table-row:last-child td:first-child {
   border-bottom-left-radius: 25px;
 }
-.blackjack__legend-table-row:last-child td:last-child {
+.roulette__legend-table-row:last-child td:last-child {
   border-bottom-right-radius: 25px;
 }
-.blackjack__legend-table-red {
+.roulette__legend-table-red {
   width: 25px;
   height: 25px;
   margin-left: 20px;
@@ -57,7 +57,7 @@
   border: 1px solid black;
   background-color: red;
 }
-.blackjack__legend-table-black {
+.roulette__legend-table-black {
   width: 25px;
   height: 25px;
   margin-left: 20px;
@@ -65,7 +65,7 @@
   border: 1px solid black;
   background-color: black;
 }
-.blackjack__legend-table-green {
+.roulette__legend-table-green {
   width: 25px;
   height: 25px;
   margin-left: 20px;
@@ -74,4 +74,4 @@
   background-color: green;
 }
 
-/*# sourceMappingURL=BlackjackLegend.css.map */
+/*# sourceMappingURL=RouletteLegend.css.map */

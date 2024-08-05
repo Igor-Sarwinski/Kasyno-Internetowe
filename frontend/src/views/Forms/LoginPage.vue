@@ -43,9 +43,9 @@ const loginAction = async () => {
         <img
           alt=""
           class="login-panel__image-background"
-          src="../assets/img/login/background.webp"
+          src="../../assets/img/login/background.webp"
         />
-        <img alt="logo" class="login-panel__image-logo" src="../assets/img/logo.png" />
+        <img alt="logo" class="login-panel__image-logo" src="../../assets/img/logo.png" />
       </div>
       <div class="login-panel__form">
         <h5 class="login-panel__form-header">PANEL LOGOWANIA</h5>

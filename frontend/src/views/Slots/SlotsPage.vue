@@ -1,12 +1,17 @@
 <script setup>
 import GameHub from '@/components/GameHub.vue'
-import SlotsLegend from '@/components/SlotsLegend.vue'
+import SlotsLegend from '@/views/Slots/SlotsLegend.vue'
+import SlotsGame from '@/views/Slots/SlotsGame.vue'
+const emit = defineEmits(['updateUser'])
+const updateUser = () =>{
+  emit('updateUser');
+}
 </script>
 <template>
   <div class="slots">
     <GameHub>
       <template #game="{ coins }">
-        <p>{{coins}}</p>
+        <SlotsGame @updateUser="updateUser" :coins="coins" />
       </template>
       <template #legend="{coins}">
         <SlotsLegend :coins="coins" />

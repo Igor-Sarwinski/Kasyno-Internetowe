@@ -1,6 +1,6 @@
 <script setup>
 import GameHub from '@/components/GameHub.vue'
-import BlackjackLegend from '@/components/BlackjackLegend.vue'
+import BlackjackLegend from '@/views/Blackjack/BlackjackLegend.vue'
 </script>
 
 <template>

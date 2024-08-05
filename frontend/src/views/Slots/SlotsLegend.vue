@@ -1,16 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-
+import {items } from './slotsItems.js'
 defineProps({
   coins: Number
 })
-const items = ref([
-  { icon: 'lemon', percent: 25, modifier: 2 },
-  { icon: 'watermelon', percent: 15, modifier: 3 },
-  { icon: 'cherry', percent: 10, modifier: 4 },
-  { icon: 'diamond', percent: 5, modifier: 5 },
-  { icon: 'coin', percent: 1, modifier: 10 }
-])
 </script>
 
 <template>
@@ -26,8 +18,8 @@ const items = ref([
         <td class="slots__legend-table-cell">
           <img
             class="slots__legend-table-img"
-            :src="`/src/assets/img/slots/slot-${item.icon}.png`"
-            :alt="`${item.icon}`"
+            :src="`${item.image}`"
+            :alt="`${item.name}`"
           />
         </td>
         <td class="slots__legend-table-cell">{{ item.percent }}%</td>

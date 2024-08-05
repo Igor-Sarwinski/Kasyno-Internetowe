@@ -1,12 +1,11 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import { fetchUser, useLogout } from '@/utils/utils.js'
+import { ref } from 'vue'
+import { useLogout } from '@/utils/utils.js'
 import MenuItem from '@/components/MenuItem.vue'
-const user = ref('')
-onMounted(async () => {
-  user.value = await fetchUser()
-})
 
+defineProps({
+  user: Object
+})
 const logoutAction = useLogout()
 
 const menuItems = ref([

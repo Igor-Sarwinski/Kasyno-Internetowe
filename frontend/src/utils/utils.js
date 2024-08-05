@@ -44,3 +44,21 @@ export const getTopUsers = async () => {
     console.log(err)
   }
 }
+export const addUserMoney = async (value) => {
+  const user = await fetchUser()
+  try {
+    await setUserMoney(user.money + value)
+    console.log(user.money + value)
+  } catch (err) {
+    console.log(err)
+  }
+}
+export const removeUserMoney = async (value) => {
+  const user = await fetchUser()
+  try {
+    await setUserMoney(user.money - value)
+    console.log(user.money - value)
+  } catch (err) {
+    console.log(err)
+  }
+}

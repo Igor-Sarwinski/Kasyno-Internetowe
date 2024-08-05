@@ -1,0 +1,133 @@
+@import '../../variables';
+@import '../Roulette/RoulettePage';
+@keyframes rainbow-shadow {
+  0% {
+    filter: drop-shadow(0 0 3px red);
+  }
+  8.33% {
+    filter: drop-shadow(0 0 3px orange);
+  }
+  16.66% {
+    filter: drop-shadow(0 0 3px yellow);
+  }
+  25% {
+    filter: drop-shadow(0 0 3px green);
+  }
+  33.33% {
+    filter: drop-shadow(0 0 3px blue);
+  }
+  41.66% {
+    filter: drop-shadow(0 0 3px indigo);
+  }
+  50% {
+    filter: drop-shadow(0 0 3px violet);
+  }
+  58.33% {
+    filter: drop-shadow(0 0 3px pink);
+  }
+  66.66% {
+    filter: drop-shadow(0 0 3px cyan);
+  }
+  75% {
+    filter: drop-shadow(0 0 3px lime);
+  }
+  83.33% {
+    filter: drop-shadow(0 0 3px magenta);
+  }
+  91.66% {
+    filter: drop-shadow(0 0 3px teal);
+  }
+  100% {
+    filter: drop-shadow(0 0 3px red);
+  }
+}
+
+.slots {
+  &__game {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    &-item {
+      border-radius: 25px;
+      padding: 15px;
+      background: $background-dark;
+    }
+    &-spinner {
+      height: 465px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      overflow: hidden;
+      &-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        height: 85%;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      &-button {
+        height: 50px;
+      }
+      &-winner {
+        width: 100%;
+        margin-bottom: -55px;
+        text-align: center;
+        font-size: 4rem;
+        transition: color ease-in 0.5s;
+        animation-name: rainbow;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+      }
+    }
+    &-info {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      &-image {
+        padding-left: 15px;
+        height: 50px;
+        width: auto;
+        transition: drop-shadow ease-in 0.5s;
+        animation-name: rainbow-shadow;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+      }
+      &-winner {
+        transition: color ease-in 0.5s;
+        animation-name: rainbow;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        &-red {
+          padding-left: 10px;
+          color: red;
+          text-shadow: 0 0 15px red;
+        }
+        &-black {
+          padding-left: 10px;
+          color: black;
+          text-shadow: 0 0 15px black;
+        }
+        &-green {
+          padding-left: 10px;
+          color: green;
+          text-shadow: 0 0 15px green;
+        }
+      }
+      &-item {
+        text-align: center;
+        font-size: 1.6rem;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
