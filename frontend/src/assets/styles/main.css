@@ -1767,15 +1767,15 @@ body {
 
 .app {
   display: grid;
-  grid-template-columns: 250px 1fr; /* 250px for SideMenu and 1fr for the rest */
-  grid-template-rows: 200px 1fr; /* Auto height for header and 1fr for content */
-  height: 100vh; /* Full viewport height */
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 200px 1fr;
+  height: 100vh;
 }
 
 .main-content {
   display: grid;
-  grid-template-rows: auto 1fr; /* Auto height for HeaderPanel and 1fr for content */
-  grid-column: 2/3; /* Occupies the second column */
+  grid-template-rows: auto 1fr;
+  grid-column: 2/3;
   flex: 1;
 }
 
