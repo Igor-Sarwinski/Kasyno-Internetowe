@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="blackjack__legend">
+  <section class="blackjack__legend">
     <table class="blackjack__legend-table">
       <tr class="blackjack__legend-table-headers">
         <th class="blackjack__legend-table-header">Wygrana</th>
@@ -29,5 +29,5 @@ defineProps({
         <li class="blackjack__legend-list-item">Zwycięża osoba która ma wynik bliższy 21 </li>
         <li class="blackjack__legend-list-item">Osoba która przebije liczbę 21 automatycznie przegrywa</li>
       </ul>
-  </div>
+  </section>
 </template>

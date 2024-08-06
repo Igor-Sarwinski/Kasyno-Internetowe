@@ -2,23 +2,35 @@
 import { onMounted, ref } from 'vue'
 import PopupUser from '@/components/PopupUser.vue'
 import { getTopUsers } from '@/utils/utils.js'
+import { useRoute, useRouter } from 'vue-router'
 const users = ref([])
 
 onMounted(async () => {
   users.value = await getTopUsers()
+  const userId = route.params.id
+  if (userId) {
+    const user = users.value.find(u => u._id === userId)
+    if (user) {
+      openPopup(user)
+    }
+  }
 })
 
 const selectedUser = ref(null)
 const showPopup = ref(false)
 const button = ref(false)
+const router = useRouter()
+const route = useRoute()
 const openPopup = (user) => {
   selectedUser.value = user
   showPopup.value = true
+  router.push({ name: 'UserPopup', params: { id: user._id } })
 }
 
 const closePopup = () => {
   showPopup.value = false
   selectedUser.value = null
+  router.back();
 }
 const showButton = () => {
   button.value = true
@@ -29,7 +41,7 @@ const hideButton = () => {
 </script>
 
 <template>
-  <div class="ranking">
+  <section class="ranking">
     <table class="ranking__table">
       <tr class="ranking__table-headers">
         <th class="ranking__table-header">Lp.</th>
@@ -55,5 +67,5 @@ const hideButton = () => {
       </tr>
       <PopupUser :user="selectedUser" :visible="showPopup" @close="closePopup" />
     </table>
-  </div>
+  </section>
 </template>

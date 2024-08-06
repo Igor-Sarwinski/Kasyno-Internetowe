@@ -13,7 +13,7 @@ const menuItems = ref([
 </script>
 
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer__copyright">
       Copyright © 2024
       <a class="footer__copyright-link" href="https://github.com/Igor-Sarwinski" target="_blank"
@@ -28,5 +28,5 @@ const menuItems = ref([
         >
       </li>
     </ul>
-  </div>
+  </footer>
 </template>

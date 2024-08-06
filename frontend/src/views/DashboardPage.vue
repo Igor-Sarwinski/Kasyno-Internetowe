@@ -17,7 +17,7 @@ const items = ref([
 </script>
 
 <template>
-  <div class="dashboard">
+  <section class="dashboard">
     <DashboardCard
       v-for="item in items"
       :key="item.id"
@@ -26,5 +26,5 @@ const items = ref([
       :background="item.background"
       :link="item.link"
     />
-  </div>
+  </section>
 </template>

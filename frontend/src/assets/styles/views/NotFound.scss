@@ -1,0 +1,12 @@
+.not-found {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+  font-size:2rem;
+  &__link{
+    color: red;
+    text-decoration: none;
+  }
+}

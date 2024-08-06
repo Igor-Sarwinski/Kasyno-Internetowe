@@ -52,7 +52,7 @@ const rules = [
 ]
 </script>
 <template>
-  <div class="info">
+  <section class="info">
     <div class="info__block">
       <span class="info__block-header"><p>Autor</p></span>
       <div class="info__block-item">
@@ -81,5 +81,5 @@ const rules = [
         </ol>
       </div>
     </div>
-  </div>
+  </section>
 </template>

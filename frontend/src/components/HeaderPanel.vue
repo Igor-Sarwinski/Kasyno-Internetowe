@@ -4,7 +4,7 @@ defineProps({
 })
 </script>
 <template>
-  <div class="page__header">
+  <header class="page__header">
     <div class="page__header-info">
       <span class="page__header-info-text">
         To „kasyno” zostało stworzone wyłącznie dla zabawy! To tylko gra i w gre nie wchodzą
@@ -34,5 +34,5 @@ defineProps({
         </div>
       </router-link>
     </div>
-  </div>
+  </header>
 </template>

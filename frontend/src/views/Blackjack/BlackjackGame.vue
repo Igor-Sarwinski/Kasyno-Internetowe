@@ -108,7 +108,7 @@ const disableButton = () => {
 </script>
 
 <template>
-  <div class="blackjack__game">
+  <section class="blackjack__game">
     <div class="blackjack__game-item blackjack__game-cards">
       <div class="blackjack__game-cards-player blackjack__game-cards-enemy">
         <span class="blackjack__game-cards-header">Karty przeciwnika</span>
@@ -181,5 +181,5 @@ const disableButton = () => {
         >
       </span>
     </div>
-  </div>
+  </section>
 </template>

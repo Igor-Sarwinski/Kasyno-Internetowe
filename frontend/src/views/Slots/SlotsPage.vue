@@ -8,7 +8,7 @@ const updateUser = () =>{
 }
 </script>
 <template>
-  <div class="slots">
+  <section class="slots">
     <GameHub>
       <template #game="{ coins }">
         <SlotsGame @updateUser="updateUser" :coins="coins" />
@@ -17,7 +17,7 @@ const updateUser = () =>{
         <SlotsLegend :coins="coins" />
       </template>
     </GameHub>
-  </div>
+  </section>
 </template>
 
 

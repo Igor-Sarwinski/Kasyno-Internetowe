@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="slots__legend">
+  <section class="slots__legend">
     <table class="slots__legend-table">
       <tr class="slots__legend-table-headers">
         <th class="slots__legend-table-header">Symbol</th>
@@ -31,5 +31,5 @@ defineProps({
       Gracz musi wybrać stawkę, za którą gra, a następnie zacząć losowanie. Każdy symbol ma
       przypisany mnożnik wygranej.
     </span>
-  </div>
+  </section>
 </template>

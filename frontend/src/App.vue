@@ -23,13 +23,14 @@ const updateUser = async ()=> {
 <template>
   <div id="app" :class="{ app: isLogged }">
     <SideMenu :user="user" v-if="isLogged"/>
-    <div class="main-content">
+    <section class="main-content">
       <HeaderPanel :user="user" v-if="isLogged"/>
       <RouterView :user="user" :class="{ page: isLogged }"
-      @updateUser="updateUser"/>
+      @updateUser="updateUser">
+      </RouterView>
       <FooterPanel v-if="isLogged"/>
 
-    </div>
+    </section>
   </div>
 </template>
 

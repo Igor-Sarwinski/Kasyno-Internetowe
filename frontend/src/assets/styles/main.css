@@ -1741,6 +1741,19 @@ body {
   width: 60%;
 }
 
+.not-found {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 2rem;
+}
+.not-found__link {
+  color: red;
+  text-decoration: none;
+}
+
 * {
   padding: 0;
   margin: 0;

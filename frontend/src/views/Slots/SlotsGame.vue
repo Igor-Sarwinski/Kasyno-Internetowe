@@ -64,7 +64,7 @@ const disableButton = () => {
 </script>
 
 <template>
-  <div class="slots__game">
+  <section class="slots__game">
     <div class="slots__game-item slots__game-spinner">
       <div class="slots__game-spinner-items">
         <span class="slots__game-spinner-winner">SLOTS 24/7</span>
@@ -102,5 +102,5 @@ const disableButton = () => {
         >
       </span>
     </div>
-  </div>
+  </section>
 </template>

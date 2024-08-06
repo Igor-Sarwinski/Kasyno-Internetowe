@@ -11,8 +11,19 @@ const router = createRouter({
     { path: '/roulette', component: () => import('@/views/Roulette/RoulettePage.vue') },
     { path: '/blackjack', component: () => import('@/views/Blackjack/BlackjackPage.vue') },
     { path: '/slots', component: () => import('@/views/Slots/SlotsPage.vue') },
-    { path: '/ranking', component: () => import('@/views/RankingPage.vue') },
-    { path: '/info', component: () => import('@/views/InfoPage.vue') }
+    {
+      path: '/ranking',
+      component: () => import('@/views/RankingPage.vue'),
+      children: [
+        {
+          path: 'preview/:id',
+          name: 'UserPopup',
+          component: () => import('@/components/PopupUser.vue')
+        }
+      ]
+    },
+    { path: '/info', component: () => import('@/views/InfoPage.vue') },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: ()=> import('@/views/NotFound.vue') },
   ]
 })
 

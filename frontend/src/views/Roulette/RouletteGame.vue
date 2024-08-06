@@ -59,7 +59,7 @@ const disableButton = () => {
 </script>
 
 <template>
-  <div class="roulette__game">
+  <section class="roulette__game">
     <div class="roulette__game-item roulette__game-wheel">
       <Roulette
         ref="wheel"
@@ -140,7 +140,7 @@ const disableButton = () => {
         >
       </span>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

@@ -60,7 +60,7 @@ const editPhoto = () => {
 }
 </script>
 <template>
-  <div class="profile">
+  <section class="profile">
     <div class="profile__options">
       <div class="profile__options-item">
         <span class="profile__options-header">Zdjęcie</span>
@@ -159,5 +159,5 @@ const editPhoto = () => {
         </div>
       </form>
     </div>
-  </div>
+  </section>
 </template>

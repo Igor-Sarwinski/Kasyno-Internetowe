@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="roulette__legend">
+  <section class="roulette__legend">
     <table class="roulette__legend-table">
       <tr class="roulette__legend-table-headers">
         <th class="roulette__legend-table-header">Kolor</th>
@@ -41,5 +41,5 @@ defineProps({
       losowania. Każdy kolor ma przypisany mnożnik wygranej. Po zakończeniu losowania gracz może
       wygrać lub stracić swoje żetony, w zależności od wyniku.
     </span>
-  </div>
+  </section>
 </template>

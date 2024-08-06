@@ -59,7 +59,7 @@ const changeColor = () => {
 </script>
 
 <template>
-  <div class="hub__coins-picker">
+  <section class="hub__coins-picker">
     <div class="hub__coins-picker-coins">
       <img class="hub__coins-picker-coins-img" src="@/assets/img/chips/chip-10.png" alt="chip-10" />
       <span class="hub__coins-picker-coins-amount">x</span>
@@ -97,5 +97,5 @@ const changeColor = () => {
     <button class="hub__coins-picker-button" @click="resetCoins">
       Zresetuj coinsy <font-awesome-icon icon="rotate" />
     </button>
-  </div>
+  </section>
 </template>

@@ -53,7 +53,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="login-container">
+  <section class="login-container">
     <div class="login-panel">
       <div class="login-panel__image">
         <img
@@ -168,5 +168,5 @@ onMounted(() => {
         </form>
       </div>
     </div>
-  </div>
+  </section>
 </template>

@@ -37,7 +37,7 @@ const loginAction = async () => {
 </script>
 
 <template>
-  <div class="login-container">
+  <section class="login-container">
     <div class="login-panel">
       <div class="login-panel__image">
         <img
@@ -81,5 +81,5 @@ const loginAction = async () => {
         </form>
       </div>
     </div>
-  </div>
+  </section>
 </template>

@@ -8,7 +8,7 @@ const updateUser = () =>{
 }
 </script>
 <template>
-  <div class="roulette">
+  <section class="roulette">
     <GameHub>
       <template #game="{ coins }">
         <RouletteGame @updateUser="updateUser" :coins="coins" />
@@ -17,7 +17,7 @@ const updateUser = () =>{
         <RouletteLegend :coins="coins" />
       </template>
     </GameHub>
-  </div>
+  </section>
 </template>
 <style scoped>
 

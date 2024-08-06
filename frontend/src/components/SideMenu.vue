@@ -20,7 +20,7 @@ const menuItems = ref([
 </script>
 
 <template>
-  <div class="menu">
+  <nav class="menu">
     <div class="menu__logo">
       <img alt="logo" class="menu__logo-image" src="../assets/img/logo.png" />
     </div>
@@ -57,5 +57,5 @@ const menuItems = ref([
       <span class="material-symbols-outlined menu__nav-item-icon">logout</span>
     </div>
     <div class="menu__separator" />
-  </div>
+  </nav>
 </template>
